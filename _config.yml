@@ -1,18 +1,17 @@
 # Site-wide settings
 # ------------------
 #
-title: Sana YAVO's Blog
+title: Sana Yavo's blog
 #
 author:
-  name: sanayasfp
+  name: Sana YAVO
   email: contact@sanayavo.com
 #
 # The `>` after `description:` means to ignore line-breaks until next key. If
 #   you wish to omit the line-break after the end of text, use `>-` instead.
-# description: >
-#   Write an awesome description for your new site here. You can edit this line
-#   in _config.yml. It will appear in your document head meta (for Google search
-#   results) and in your feed.xml site description.
+description: >
+  Technical case studies and thoughts on Backend Engineering, System Design, 
+  and Practical Artificial Intelligence.
 
 
 # Build settings
@@ -61,10 +60,15 @@ minima:
 #     and list the `path` property (as represented via Liquid) of the pages in
 #     the order they should be rendered.
   nav_pages:
+    - home.md
     - about.md
+    - work-with-me.md
+    - posts.md
+    - search.md
+    - other.md
 #
 #   Set to `true` to show excerpts on the homepage.
-#   show_excerpts: false
+  show_excerpts: true
 #
 #   Minima date format.
 #     The default value is "%b %d, %Y" (e.g. Nov 14, 2023).
@@ -89,4 +93,4 @@ minima:
 #     RSS / Atom feed link is always rendered as the last item of social-links
 #     list. Set below key to `true` to not have the link to feed rendered as
 #     part of social-links list.
-#   hide_site_feed_link: false
+  hide_site_feed_link: true
