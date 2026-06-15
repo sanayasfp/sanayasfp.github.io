@@ -1,6 +1,8 @@
 <div class="theme-toggle" style="display: inline-block; margin-left: 10px; vertical-align: middle;">
   <button id="theme-toggle" aria-label="Toggle Theme" style="background: none; border: none; cursor: pointer; padding: 0; color: inherit; display: flex; align-items: center;">
-    <i id="theme-toggle-icon" style="width: 20px; height: 20px;"></i>
+    <span id="theme-toggle-container" style="display: flex; align-items: center;">
+      <i id="theme-toggle-icon" style="width: 20px; height: 20px;"></i>
+    </span>
   </button>
 </div>
 
@@ -10,28 +12,28 @@
 <script>
   (function() {
     const toggle = document.getElementById('theme-toggle');
-    const iconSpan = document.getElementById('theme-toggle-icon');
+    const container = document.getElementById('theme-toggle-container');
     const html = document.documentElement;
 
     const getTheme = () => localStorage.getItem('theme') || 'system';
     
     const updateUI = (theme) => {
-      // Map theme to Lucide icon names
       const iconMap = {
         'system': 'monitor',
         'light': 'sun',
         'dark': 'moon'
       };
       
-      // Update data-theme attribute
+      // Update theme attribute
       if (theme === 'system') {
         html.removeAttribute('data-theme');
       } else {
         html.setAttribute('data-theme', theme);
       }
 
-      // Update Lucide icon
-      iconSpan.setAttribute('data-lucide', iconMap[theme]);
+      // Re-render the icon: Lucide replaces the <i> tag, so we must provide a fresh one
+      container.innerHTML = `<i data-lucide="${iconMap[theme]}" style="width: 20px; height: 20px;"></i>`;
+      
       if (window.lucide) {
         lucide.createIcons();
       }
@@ -48,12 +50,12 @@
       updateUI(next);
     });
 
-    // Initial load - check if lucide is ready
+    // Handle initial load and potential race condition with CDN
     const init = () => {
       if (window.lucide) {
         updateUI(getTheme());
       } else {
-        setTimeout(init, 50);
+        setTimeout(init, 10);
       }
     };
     init();
@@ -61,8 +63,8 @@
 </script>
 
 <style>
-  /* Ensure icons inherit text color and have consistent size */
-  #theme-toggle-icon {
+  /* Ensure icons inherit current color */
+  .lucide {
     stroke: currentColor;
     stroke-width: 2;
     stroke-linecap: round;
@@ -70,7 +72,6 @@
     fill: none;
   }
   
-  /* Small hover effect for the button */
   #theme-toggle:hover {
     opacity: 0.7;
   }
