@@ -5,8 +5,8 @@ $brand-highlight: #f5f841;
 body {
   background-color: var(--minima-background-color);
   background-image: 
-    linear-gradient(to right, rgba(128, 128, 128, 0.08) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(128, 128, 128, 0.08) 1px, transparent 1px);
+    linear-gradient(to right, rgba(128, 128, 128, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(128, 128, 128, 0.04) 1px, transparent 1px);
   background-size: 40px 40px;
   background-position: top left;
 }
@@ -43,6 +43,13 @@ html[data-theme="dark"] {
   }
 }
 
+.post-header {
+  margin-bottom: 0px !important;
+  padding-bottom: 0px !important;
+  border-bottom: none !important;
+  text-align: left !important;
+}
+
 // Utilisation de la couleur de marque pour certains éléments
 .post-title {
   // Optionnel : une petite bordure gauche ou un soulignement discret avec votre couleur
@@ -53,7 +60,7 @@ html[data-theme="dark"] {
 // Typography inspired by PaperMod
 .post-title {
   font-size: 42px !important;
-  font-weight: 800 !important;
+  font-weight: 700 !important;
   letter-spacing: -0.5px;
   margin-bottom: 8px !important;
 }
@@ -62,7 +69,7 @@ html[data-theme="dark"] {
   font-size: 13px;
   letter-spacing: 0.5px;
   color: var(--minima-brand-color);
-  margin-bottom: 30px;
+  margin-bottom: 0px;
   display: flex;
   align-items: center;
   gap: 8px;
@@ -70,7 +77,7 @@ html[data-theme="dark"] {
 
 .breadcrumb-home {
   font-size: 14px;
-  margin-bottom: 20px;
+  // margin-bottom: 20px;
   display: block;
   text-decoration: none;
   color: var(--minima-brand-color);
@@ -100,7 +107,7 @@ html[data-theme="dark"] {
 }
 
 hr {
-  opacity: 0.1;
+  opacity: 0.5;
 }
 
 // Overrides pour le sélecteur de thème manuel
