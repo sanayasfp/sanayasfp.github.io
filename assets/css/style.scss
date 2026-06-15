@@ -5,20 +5,3 @@
 @import
   "minima/skins/{{ site.minima.skin | default: 'classic' }}",
   "minima/initialize";
-
-// Fixation de la barre de navigation en haut de la page
-.site-header {
-  position: -webkit-sticky;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  
-  // Garantit l'opacité pour que le contenu du site défile proprement en arrière-plan
-  background-color: #181818 !important; 
-  border-bottom: 1px solid #2b2b2b;
-}
-
-// Optionnel : Ajustement de la couleur de fond de la navigation mobile si nécessaire
-.site-nav {
-  background-color: #181818 !important;
-}

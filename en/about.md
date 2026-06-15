@@ -1,7 +1,8 @@
 ---
-layout: clean-page
+layout: page
 title: About
 permalink: /en/about/
+hide_title: true
 ---
 
 {% include profile-header.html %}
