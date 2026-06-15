@@ -5,6 +5,9 @@
   top: 0;
   z-index: 1000;
   
+  // Supprime la barre épaisse par défaut de Minima
+  border-top: none !important;
+
   // Utilise la variable de fond du thème pour l'opacité
   background-color: var(--minima-background-color) !important; 
   border-bottom: 1px solid var(--minima-border-color-01);
