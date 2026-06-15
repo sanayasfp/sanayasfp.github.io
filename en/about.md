@@ -1,16 +1,10 @@
 ---
-layout: page
+layout: clean-page
 title: About
 permalink: /en/about/
 ---
 
-*Voir la version française ? [Cliquez ici](/about/)*
-
-<img src="/assets/sana.png" alt="Sana Yavo" style="width:200px; height:200px; border-radius:50%; object-fit:cover; margin-bottom:20px;">
-
-**Software Engineer \| Backend Developer \| Machine Learning Practitioner**
-
----
+{% include profile-header.html %}
 
 Hi! I'm Sana.
 
