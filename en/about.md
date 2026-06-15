@@ -8,7 +8,7 @@ permalink: /en/about/
 
 <img src="/assets/sana.png" alt="Sana Yavo" style="width:200px; height:200px; border-radius:50%; object-fit:cover; margin-bottom:20px;">
 
-**Software Engineer | Backend Developer | Machine Learning Practitioner**
+**Software Engineer \| Backend Developer \| Machine Learning Practitioner**
 
 ---
 
