@@ -16,8 +16,8 @@ La majeure partie de mes projets récents se situe à l'intersection du génie l
 
 En dehors du développement pur, je consacre mon temps à :
 
-*   Optimiser l'inférence locale de modèles open-source (LLM) sur des architectures matérielles contraintes.
-*   Concevoir des systèmes de validation de données et de détection de fraudes physiques/documentaires.
-*   Suivre l'évolution des infrastructures modernes de calcul et de stockage distribué.
+* Optimiser l'inférence locale de modèles open-source (LLM) sur des architectures matérielles contraintes.
+* Concevoir des systèmes de validation de données et de détection de fraudes physiques/documentaires.
+* Suivre l'évolution des infrastructures modernes de calcul et de stockage distribué.
 
 Pendant mon temps libre, j'aime explorer de nouvelles technologies, lire des articles d'ingénierie et approfondir les concepts sous-jacents des systèmes informatiques.
