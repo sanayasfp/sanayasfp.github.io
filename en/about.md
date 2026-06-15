@@ -11,7 +11,7 @@ Hi! I'm Sana.
 
 I am a Software Engineer by trade, specializing in Backend Engineering and System Design. I am currently pursuing a Master's degree in Artificial Intelligence to deepen my expertise in practical machine learning systems.
 
-Most of my recent work sits at the intersection of robust backend development and applied AI — building scalable web architectures and deploying production-ready Computer Vision pipelines.
+Most of my recent work sits at the intersection of robust backend development and applied AI - building scalable web architectures and deploying production-ready Computer Vision pipelines.
 
 Occasionally, I find time to:
 
