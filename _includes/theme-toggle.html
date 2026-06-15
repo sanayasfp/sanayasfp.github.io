@@ -1,0 +1,43 @@
+<div class="theme-toggle" style="display: inline-block; margin-left: 10px; vertical-align: middle;">
+  <button id="theme-toggle" aria-label="Toggle Theme" style="background: none; border: none; cursor: pointer; font-size: 1.2em; padding: 0;">
+    <span id="theme-toggle-icon">🌓</span>
+  </button>
+</div>
+
+<script>
+  (function() {
+    const toggle = document.getElementById('theme-toggle');
+    const icon = document.getElementById('theme-toggle-icon');
+    const html = document.documentElement;
+
+    const getTheme = () => localStorage.getItem('theme') || 'system';
+    
+    const updateUI = (theme) => {
+      const icons = {
+        'system': '🌓',
+        'light': '☀️',
+        'dark': '🌙'
+      };
+      icon.textContent = icons[theme];
+      if (theme === 'system') {
+        html.removeAttribute('data-theme');
+      } else {
+        html.setAttribute('data-theme', theme);
+      }
+    };
+
+    toggle.addEventListener('click', () => {
+      const current = getTheme();
+      let next;
+      if (current === 'system') next = 'light';
+      else if (current === 'light') next = 'dark';
+      else next = 'system';
+      
+      localStorage.setItem('theme', next);
+      updateUI(next);
+    });
+
+    // Sync UI on load
+    updateUI(getTheme());
+  })();
+</script>
