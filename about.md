@@ -3,7 +3,6 @@ layout: page
 title: About
 permalink: /about/
 lang: fr
-hide_title: true
 ---
 
 {% include profile-header.html %}

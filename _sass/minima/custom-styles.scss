@@ -1,4 +1,85 @@
-// Fixation de la barre de navigation en haut de la page
+// Variables de marque
+$brand-highlight: #f5f841;
+
+// Arrière-plan avec grille style PaperMod
+body {
+  background-color: var(--minima-background-color);
+  background-image: 
+    linear-gradient(var(--minima-border-color-01) 1px, transparent 1px),
+    linear-gradient(90deg, var(--minima-border-color-01) 1px, transparent 1px);
+  background-size: 40px 40px;
+  background-position: center center;
+}
+
+// Style de l'item de navigation actif (Rectangle inversé)
+.site-nav .nav-link {
+  padding: 4px 8px;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+  
+  &.active {
+    font-weight: bold;
+    // En mode light (par défaut) : fond sombre, texte clair
+    background-color: #181818;
+    color: #fdfdfd !important;
+  }
+}
+
+// Inversion pour le mode dark
+html[data-theme="dark"] {
+  .site-nav .nav-link.active {
+    background-color: #fdfdfd;
+    color: #181818 !important;
+  }
+}
+
+// Media query pour prefers-color-scheme si pas de data-theme forcé
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme="light"]) {
+    .site-nav .nav-link.active {
+      background-color: #fdfdfd;
+      color: #181818 !important;
+    }
+  }
+}
+
+// Utilisation de la couleur de marque pour certains éléments
+.post-title {
+  // Optionnel : une petite bordure gauche ou un soulignement discret avec votre couleur
+  // border-left: 4px solid $brand-highlight;
+  // padding-left: 15px;
+}
+
+// Typography inspired by PaperMod
+.post-title {
+  font-size: 42px !important;
+  font-weight: 800 !important;
+  letter-spacing: -0.5px;
+  margin-bottom: 8px !important;
+}
+
+.post-meta-custom {
+  font-size: 13px;
+  letter-spacing: 0.5px;
+  color: var(--minima-brand-color);
+  margin-bottom: 30px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.breadcrumb-home {
+  font-size: 14px;
+  margin-bottom: 20px;
+  display: block;
+  text-decoration: none;
+  color: var(--minima-brand-color);
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+// ... (rest of existing styles)
 .site-header {
   position: -webkit-sticky;
   position: sticky;
