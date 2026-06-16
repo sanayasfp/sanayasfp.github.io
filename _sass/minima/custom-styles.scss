@@ -95,7 +95,7 @@ html[data-theme="dark"] {
   }
 }
 
-// ... (rest of existing styles)
+// Fixation de la barre de navigation en haut de la page
 .site-header {
   position: -webkit-sticky;
   position: sticky;
@@ -106,8 +106,13 @@ html[data-theme="dark"] {
   border-top: none !important;
 
   // Utilise la variable de fond du thème pour l'opacité
-  background-color: var(--minima-background-color) !important;
+  background-color: var(--minima-background-color) !important; 
   border-bottom: 1px solid var(--minima-border-color-01);
+
+  // Élargit uniquement le conteneur de la navbar
+  .wrapper {
+    max-width: 1100px !important;
+  }
 }
 
 // Ajustement de la couleur de fond de la navigation mobile
@@ -129,7 +134,9 @@ html[data-theme="dark"] {
 }
 
 .nav-item {
-  margin-right: 5px;
+  &:not(:last-child) {
+    margin-right: 5px;
+  }
 }
 
 hr {
