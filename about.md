@@ -16,7 +16,8 @@ La majeure partie de mes projets récents se situe à l'intersection du génie l
 En dehors du développement pur, je consacre mon temps à :
 
 * Optimiser l'inférence locale de modèles open-source (LLM) sur des architectures matérielles contraintes.
-* Concevoir des systèmes de validation de données et de détection de fraudes physiques/documentaires.
-* Suivre l'évolution des infrastructures modernes de calcul et de stockage distribué.
+* Concevoir des systèmes de validation de données et de détection de fraudes physiques/documentaires. [car-inspect-ai](https://github.com/sanayasfp/car-inspect-ai).
+* Concevoir des applications géolocalisées et optimisées avec des architectures modulaires performantes comme [laplace-nearby](https://github.com/sanayasfp/laplace-nearby).
+* Suivre l'évolution des infrastructures modernes de calcul distribué (HPC) et de l'optimisation des performances logicielles.
 
-Pendant mon temps libre, j'aime explorer de nouvelles technologies, lire des articles d'ingénierie et approfondir les concepts sous-jacents des systèmes informatiques.
+Pendant mon temps libre, j’aime recréer des plats que je vois sur les réseaux sociaux. C’est ma façon à moi de me déconnecter des écrans, de stimuler ma créativité et de partager de bons moments. J’aime aussi explorer de nouvelles piles technologiques et lire des blogs sur le System Design, mon favori étant [ByteByteGo](https://substack.com/@bytebytego399569).
