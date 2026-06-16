@@ -12,42 +12,36 @@ layout: base
       {{ strings.home_description | markdownify }}
     </div>
 
-    <div class="social-links-home" style="display: flex; gap: 20px; align-items: center; font-size: 14px;">
-      <a href="https://github.com/sanayasfp" target="_blank" style="display: flex; align-items: center; gap: 5px; text-decoration: none; color: inherit;">
-        <i data-lucide="github" style="width: 20px; height: 20px;"></i> GitHub
+    <div class="social-links-home" style="display: flex; gap: 20px; align-items: center; font-size: 14px; flex-wrap: wrap;">
+      {%- for link in site.minima.social_links -%}
+      <a href="{{ link.url }}" target="_blank" style="display: flex; align-items: center; gap: 5px; text-decoration: none; color: inherit;">
+        <i data-lucide="{{ link.icon }}" style="width: 20px; height: 20px;"></i> {{ link.title }}
       </a>
-      <a href="https://www.linkedin.com/in/sanayasfp/" target="_blank" style="display: flex; align-items: center; gap: 5px; text-decoration: none; color: inherit;">
-        <i data-lucide="linkedin" style="width: 20px; height: 20px;"></i> LinkedIn
-      </a>
-      <a href="https://substack.com/@bytebytego399569" target="_blank" style="display: flex; align-items: center; gap: 5px; text-decoration: none; color: inherit;">
-        <i data-lucide="rss" style="width: 20px; height: 20px;"></i> Substack
-      </a>
-      <a href="mailto:contact@sanayavo.com" style="display: flex; align-items: center; gap: 5px; text-decoration: none; color: inherit;">
-        <i data-lucide="mail" style="width: 20px; height: 20px;"></i> contact@sanayavo.com
-      </a>
+      {%- endfor -%}
     </div>
+
   </header>
 
-  <hr style="margin-bottom: 40px; opacity: 0.1;">
+  <hr>
 
   <h2 style="font-size: 28px; font-weight: 700; margin-bottom: 30px;">{{ strings.posts_heading }} -</h2>
 
   {%- assign posts = site.posts | where: "lang", lang -%}
   {%- if posts.size > 0 -%}
-    <ul class="post-list" style="list-style: none; margin-left: 0;">
-      {%- for post in posts -%}
-      <li style="margin-bottom: 40px;">
-        <h3 style="font-size: 24px; margin-bottom: 8px; font-weight: 700;">
-          <a class="post-link" href="{{ post.url | relative_url }}" style="text-decoration: none;">
-            {{ post.title | escape }}
-          </a>
-        </h3>
-        <div class="post-meta-custom" style="color: var(--minima-brand-color); font-size: 13px;">
-          {{ post.date | date: "%b %d, %Y" }} · {% include read-time.html content=post.content %}
-        </div>
-      </li>
-      {%- endfor -%}
-    </ul>
+  <ul class="post-list" style="list-style: none; margin-left: 0;">
+    {%- for post in posts -%}
+    <li style="margin-bottom: 40px;">
+      <h3 style="font-size: 24px; margin-bottom: 8px; font-weight: 700;">
+        <a class="post-link" href="{{ post.url | relative_url }}" style="text-decoration: none;">
+          {{ post.title | escape }}
+        </a>
+      </h3>
+      <div class="post-meta-custom" style="color: var(--minima-brand-color); font-size: 13px;">
+        {{ post.date | date: "%b %d, %Y" }} · {% include read-time.html content=post.content %}
+      </div>
+    </li>
+    {%- endfor -%}
+  </ul>
   {%- endif -%}
 </div>
 

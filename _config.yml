@@ -82,12 +82,18 @@ minima:
 #       * icon     Font Awesome icon id. `github` corresponds to `fa-github`.
 #       * url      Full URL of social profile.
   social_links:
-    - title: My github profile
+    - title: GitHub
       icon: github
       url: "https://github.com/sanayasfp"
-    - title: My linkedin
+    - title: LinkedIn
       icon: linkedin
       url: "https://www.linkedin.com/in/sanayasfp/"
+    - title: Substack
+      icon: substack
+      url: "https://substack.com/@bytebytego399569"
+    - title: contact@sanayavo.com
+      icon: mail
+      url: "mailto:contact@sanayavo.com"
 #
 #   Hide syndication feed subscription link.
 #     RSS / Atom feed link is always rendered as the last item of social-links
