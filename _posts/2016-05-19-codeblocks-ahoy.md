@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: fr
 ---
 
 An article with various blocks of highlighted code snippets.

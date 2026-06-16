@@ -60,7 +60,7 @@ minima:
 #     and list the `path` property (as represented via Liquid) of the pages in
 #     the order they should be rendered.
   nav_pages:
-    - home.md
+    - index.md
     - about.md
     - work-with-me.md
     - posts.md

@@ -1,4 +1,5 @@
-{% assign words = content | number_of_words %}
+{% assign text = include.content | default: content %}
+{% assign words = text | number_of_words %}
 {% if words < 360 %}
   1 min
 {% else %}

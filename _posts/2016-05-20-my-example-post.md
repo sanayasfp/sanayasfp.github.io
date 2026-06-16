@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: fr
 author: John Doe
 comments: false
 ---

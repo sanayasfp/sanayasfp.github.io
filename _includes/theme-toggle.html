@@ -18,47 +18,29 @@
     const getTheme = () => localStorage.getItem('theme') || 'system';
     
     const updateUI = (theme) => {
-      const iconMap = {
-        'system': 'monitor',
-        'light': 'sun',
-        'dark': 'moon'
-      };
-      
-      // Update theme attribute
-      if (theme === 'system') {
-        html.removeAttribute('data-theme');
-      } else {
-        html.setAttribute('data-theme', theme);
-      }
+      const iconMap = { 'system': 'monitor', 'light': 'sun', 'dark': 'moon' };
+      if (theme === 'system') html.removeAttribute('data-theme');
+      else html.setAttribute('data-theme', theme);
 
-      // Re-render the icon: Lucide replaces the <i> tag, so we must provide a fresh one
       container.innerHTML = `<i data-lucide="${iconMap[theme]}" style="width: 20px; height: 20px;"></i>`;
-      
-      if (window.lucide) {
-        lucide.createIcons();
-      }
+      if (window.lucide) lucide.createIcons();
     };
 
     toggle.addEventListener('click', () => {
       const current = getTheme();
-      let next;
-      if (current === 'system') next = 'light';
-      else if (current === 'light') next = 'dark';
-      else next = 'system';
-      
+      const next = current === 'system' ? 'light' : (current === 'light' ? 'dark' : 'system');
       localStorage.setItem('theme', next);
       updateUI(next);
     });
 
-    // Handle initial load and potential race condition with CDN
-    const init = () => {
-      if (window.lucide) {
-        updateUI(getTheme());
-      } else {
-        setTimeout(init, 10);
-      }
-    };
-    init();
+    // Initialize as soon as script runs, if lucide is not yet loaded, use an event listener
+    if (window.lucide) {
+      updateUI(getTheme());
+    } else {
+      document.addEventListener('DOMContentLoaded', () => updateUI(getTheme()));
+      // Fallback for CDN delay
+      window.addEventListener('load', () => updateUI(getTheme()));
+    }
   })();
 </script>
 

@@ -2,6 +2,7 @@
 layout: page
 title: About
 permalink: /en/about/
+lang: en
 ---
 
 {% include profile-header.html %}

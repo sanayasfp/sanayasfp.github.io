@@ -1,0 +1,28 @@
+fr:
+  menu:
+    - title: Accueil
+      url: /
+    - title: À propos
+      url: /about/
+    - title: Travailler avec moi
+      url: /work-with-me/
+    - title: Articles
+      url: /posts/
+    - title: Recherche
+      url: /search/
+    - title: Autre
+      url: /other/
+en:
+  menu:
+    - title: Home
+      url: /en/
+    - title: About
+      url: /en/about/
+    - title: Work with me
+      url: /en/work-with-me/
+    - title: Posts
+      url: /en/posts/
+    - title: Search
+      url: /en/search/
+    - title: Other
+      url: /en/other/
