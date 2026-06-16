@@ -12,12 +12,8 @@ layout: base
       {{ strings.home_description | markdownify }}
     </div>
 
-    <div class="social-links-home" style="display: flex; gap: 20px; align-items: center; font-size: 14px; flex-wrap: wrap;">
-      {%- for link in site.minima.social_links -%}
-      <a href="{{ link.url }}" target="_blank" style="display: flex; align-items: center; gap: 5px; text-decoration: none; color: inherit;">
-        <i data-lucide="{{ link.icon }}" style="width: 20px; height: 20px;"></i> {{ link.title }}
-      </a>
-      {%- endfor -%}
+    <div class="social-links-home">
+      {%- include social.html -%}
     </div>
 
   </header>
@@ -44,10 +40,3 @@ layout: base
   </ul>
   {%- endif -%}
 </div>
-
-<script>
-  // Ensure Lucide icons are rendered
-  if (window.lucide) {
-    lucide.createIcons();
-  }
-</script>

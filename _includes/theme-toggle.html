@@ -1,29 +1,31 @@
 <div class="theme-toggle" style="display: inline-block; margin-left: 10px; vertical-align: middle;">
   <button id="theme-toggle" aria-label="Toggle Theme" style="background: none; border: none; cursor: pointer; padding: 0; color: inherit; display: flex; align-items: center;">
-    <span id="theme-toggle-container" style="display: flex; align-items: center;">
-      <i id="theme-toggle-icon" style="width: 20px; height: 20px;"></i>
+    <span id="theme-toggle-container" style="display: flex; align-items: center; font-size: 1.2rem;">
+      <i id="theme-toggle-icon" class="bi"></i>
     </span>
   </button>
 </div>
 
-<!-- Import Lucide Icons -->
-<script src="https://unpkg.com/lucide@latest"></script>
-
 <script>
   (function() {
     const toggle = document.getElementById('theme-toggle');
-    const container = document.getElementById('theme-toggle-container');
+    const icon = document.getElementById('theme-toggle-icon');
     const html = document.documentElement;
 
     const getTheme = () => localStorage.getItem('theme') || 'system';
     
     const updateUI = (theme) => {
-      const iconMap = { 'system': 'monitor', 'light': 'sun', 'dark': 'moon' };
+      const iconMap = { 
+        'system': 'bi-display', 
+        'light': 'bi-sun', 
+        'dark': 'bi-moon-stars' 
+      };
+
       if (theme === 'system') html.removeAttribute('data-theme');
       else html.setAttribute('data-theme', theme);
 
-      container.innerHTML = `<i data-lucide="${iconMap[theme]}" style="width: 20px; height: 20px;"></i>`;
-      if (window.lucide) lucide.createIcons();
+      // Update Bootstrap Icon classes
+      icon.className = 'bi ' + iconMap[theme];
     };
 
     toggle.addEventListener('click', () => {
@@ -33,27 +35,11 @@
       updateUI(next);
     });
 
-    // Initialize as soon as script runs, if lucide is not yet loaded, use an event listener
-    if (window.lucide) {
-      updateUI(getTheme());
-    } else {
-      document.addEventListener('DOMContentLoaded', () => updateUI(getTheme()));
-      // Fallback for CDN delay
-      window.addEventListener('load', () => updateUI(getTheme()));
-    }
+    updateUI(getTheme());
   })();
 </script>
 
 <style>
-  /* Ensure icons inherit current color */
-  .lucide {
-    stroke: currentColor;
-    stroke-width: 2;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-    fill: none;
-  }
-  
   #theme-toggle:hover {
     opacity: 0.7;
   }

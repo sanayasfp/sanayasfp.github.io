@@ -1,8 +1,31 @@
 // Variables de marque
 $brand-highlight: #f5f841;
 
-// Arrière-plan avec grille style PaperMod (plus fin et aligné)
-body {
+.social-links {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  font-size: 14px;
+  flex-wrap: wrap;
+
+  .social-link-item {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    text-decoration: none;
+    color: inherit;
+    transition: opacity 0.2s ease;
+
+    &:hover {
+      opacity: 0.7;
+      text-decoration: none;
+    }
+
+    svg, i {
+      flex-shrink: 0;
+    }
+  }
+}
   background-color: var(--minima-background-color);
   background-image:
     linear-gradient(to right, rgba(128, 128, 128, 0.1) 1px, transparent 1px),
