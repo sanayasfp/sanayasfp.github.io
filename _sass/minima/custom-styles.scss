@@ -11,18 +11,32 @@ $brand-highlight: #f5f841;
   .social-link-item {
     display: flex;
     align-items: center;
-    gap: 5px;
+    justify-content: center;
+    gap: 8px;
     text-decoration: none;
     color: inherit;
-    transition: opacity 0.2s ease;
+    transition: all 0.2s ease;
+    padding: 8px 12px;
+    border: 1px solid var(--minima-border-color-01);
+    background: transparent;
+    border-radius: 0; // Bordures carrées pour matcher la nav
 
     &:hover {
-      opacity: 0.7;
+      background-color: $brand-highlight;
+      color: #181818 !important;
+      border-color: $brand-highlight;
+      opacity: 1;
       text-decoration: none;
     }
 
-    svg, i {
+    i, svg {
       flex-shrink: 0;
+      width: 18px;
+      height: 18px;
+    }
+
+    .social-link-label {
+      font-weight: 500;
     }
   }
 }
