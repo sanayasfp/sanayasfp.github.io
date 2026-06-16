@@ -11,10 +11,10 @@
         {%- assign lang = page.lang | default: "fr" -%}
         {%- if lang == "fr" -%}
           {%- assign target_url = "/en" | append: page.url | replace: "//", "/" -%}
-          <a href="{{ target_url | relative_url }}" style="text-decoration: none;">🇬🇧 English</a>
+          <a href="{{ target_url | relative_url }}" style="text-decoration: none;"><img src="https://flagcdn.com/24x18/gb.png" alt="UK Flag"> English</a>
         {%- else -%}
           {%- assign target_url = page.url | replace: "/en/", "/" -%}
-          <a href="{{ target_url | relative_url }}" style="text-decoration: none;">🇫🇷 Français</a>
+          <a href="{{ target_url | relative_url }}" style="text-decoration: none;"><img src="https://flagcdn.com/24x18/fr.png" alt="French Flag"> Français</a>
         {%- endif -%}
       </div>
 
