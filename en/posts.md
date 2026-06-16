@@ -5,6 +5,4 @@ permalink: /en/posts/
 lang: en
 ---
 
-{% include profile-header.html %}
-
 All my technical articles on Backend, System Design, and AI will be listed here.

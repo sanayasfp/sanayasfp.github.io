@@ -5,6 +5,4 @@ permalink: /en/other/
 lang: en
 ---
 
-{% include profile-header.html %}
-
 Other interesting resources and links will be added here.
