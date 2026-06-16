@@ -1,7 +1,9 @@
 <div class="social-links">
   {%- for link in site.minima.social_links -%}
   <a class="social-link-item" href="{{ link.url }}" target="_blank" rel="me" title="{{ link.title }}">
-    <i class="bi bi-{{ link.icon }}" style="font-size: 1.2rem;"></i>
+    <span class="social-icon-wrapper">
+      <i class="bi bi-{{ link.icon }}"></i>
+    </span>
     <span class="social-link-label">{{ link.title }}</span>
   </a>
   {%- endfor -%}
