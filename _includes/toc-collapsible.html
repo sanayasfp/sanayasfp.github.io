@@ -1,0 +1,8 @@
+{% if page.content contains "h2" or page.content contains "h3" %}
+<details class="toc-container">
+  <summary class="toc-title">Table of Contents</summary>
+  <div class="toc-content">
+    {% include toc.html html=content h_min=2 h_max=3 %}
+  </div>
+</details>
+{% endif %}

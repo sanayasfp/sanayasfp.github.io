@@ -1,0 +1,22 @@
+{%- assign lang = page.lang | default: "fr" -%}
+{%- assign t_prev = "Précédent" -%}
+{%- assign t_next = "Suivant" -%}
+{%- if lang == "en" -%}
+  {%- assign t_prev = "Previous" -%}
+  {%- assign t_next = "Next" -%}
+{%- endif -%}
+
+<div class="post-navigation">
+  <div class="prev-post">
+    {% if page.previous %}
+      <span class="nav-label">{{ t_prev }}</span>
+      <a href="{{ page.previous.url | relative_url }}">{{ page.previous.title }}</a>
+    {% endif %}
+  </div>
+  <div class="next-post">
+    {% if page.next %}
+      <span class="nav-label">{{ t_next }}</span>
+      <a href="{{ page.next.url | relative_url }}">{{ page.next.title }}</a>
+    {% endif %}
+  </div>
+</div>

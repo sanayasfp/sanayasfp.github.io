@@ -5,9 +5,34 @@ layout: base
 
   {% include page-header.html %}
 
+  {%- if page.toc != false -%}
+    <details class="toc-container" open>
+      <summary class="toc-title">Table of Contents</summary>
+      <div class="toc-content">
+        {% include toc.html html=content h_min=2 h_max=3 sanitize=true class="toc-list" %}
+      </div>
+    </details>
+  {%- endif -%}
+
+  {%- if page.abstract -%}
+    <div class="post-abstract">
+      {{ page.abstract | markdownify }}
+    </div>
+  {%- endif -%}
+
   <div class="post-content e-content" itemprop="articleBody">
     {{ content }}
   </div>
+
+  {% if page.tags.size > 0 %}
+    <div class="post-tags-container">
+      {% for tag in page.tags %}
+        <a href="{{ '/tags/' | append: tag | relative_url }}" class="tag-button">#{{ tag }}</a>
+      {% endfor %}
+    </div>
+  {% endif %}
+
+  {% include post-navigation.html %}
 
   {% if jekyll.environment == 'production' -%}
     {% if page.comments == false -%}
@@ -21,3 +46,32 @@ layout: base
 
   <a class="u-url" href="{{ page.url | relative_url }}" hidden></a>
 </article>
+
+<button id="go-up-button" title="Go to top">
+  <i class="bi bi-arrow-up"></i>
+</button>
+
+<script>
+  // TOC smooth scroll
+  document.querySelectorAll('.toc-content a').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      document.querySelector(this.getAttribute('href')).scrollIntoView({
+        behavior: 'smooth'
+      });
+    });
+  });
+
+  // Go Up Button
+  const goUpBtn = document.getElementById("go-up-button");
+  window.onscroll = function() {
+    if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+      goUpBtn.style.display = "flex";
+    } else {
+      goUpBtn.style.display = "none";
+    }
+  };
+  goUpBtn.onclick = function() {
+    window.scrollTo({top: 0, behavior: 'smooth'});
+  };
+</script>
