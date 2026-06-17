@@ -1,19 +1,19 @@
 ---
 layout: none
-permalink: /search.json
+permalink: /en/search.json
 ---
 [
   {%- assign documents = site.posts | concat: site.pages -%}
   {%- assign first = true -%}
   {%- for doc in documents -%}
     {%- assign doc_lang = doc.lang | default: "fr" -%}
-    {%- if doc.title and doc_lang == "fr" -%}
+    {%- if doc.title and doc_lang == "en" -%}
       {%- unless first -%},{%- endunless -%}
       {%- assign first = false -%}
       {%- assign extra_content = "" -%}
 
       {%- if doc.url contains "work-with-me" -%}
-        {%- assign work_data = site.data.work_with_me["fr"] -%}
+        {%- assign work_data = site.data.work_with_me["en"] -%}
         {%- for org in work_data.organizations -%}
           {%- assign extra_content = extra_content | append: org.name | append: " " -%}
         {%- endfor -%}
@@ -29,7 +29,7 @@ permalink: /search.json
         "url"      : {{ doc.url | relative_url | jsonify }},
         "date"     : {{ doc.date | date: "%B %d, %Y" | jsonify }},
         "content"  : {{ doc.content | append: " " | append: extra_content | strip_html | strip_newlines | truncatewords: 70 | jsonify }},
-        "lang"     : "fr"
+        "lang"     : "en"
       }
     {%- endif -%}
   {%- endfor -%}

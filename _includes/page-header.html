@@ -5,15 +5,23 @@
 {%- comment -%} Find localized Titles for Breadcrumbs {%- endcomment -%}
 {%- assign posts_title = "Articles" -%}
 {%- assign tags_title = "Tags" -%}
+{%- assign posts_url = "/posts/" -%}
+{%- assign tags_url = "/tags/" -%}
+
+{%- if lang == "en" -%}
+  {%- assign posts_title = "Posts" -%}
+  {%- assign posts_url = "/en/posts/" -%}
+  {%- assign tags_url = "/en/tags/" -%}
+{%- endif -%}
 
 {%- for item in nav_data.menu -%}
   {%- if item.url contains "posts" -%}
-    {%- assign posts_item = item -%}
     {%- assign posts_title = item.title -%}
+    {%- assign posts_url = item.url -%}
   {%- endif -%}
   {%- if item.url contains "tags" -%}
-    {%- assign tags_item = item -%}
     {%- assign tags_title = item.title -%}
+    {%- assign tags_url = item.url -%}
   {%- endif -%}
 {%- endfor -%}
 
@@ -21,12 +29,12 @@
   <div class="breadcrumb">
     <a href="{{ home.url | relative_url }}" class="breadcrumb-item">{{ home.title }}</a>
     
-    {%- if page.layout == "post" or page.url contains "/posts/" -%}
+    {%- if page.layout == "post" or page.url == posts_url -%}
       <span class="breadcrumb-separator">»</span>
-      <a href="{{ posts_item.url | default: '/posts/' | relative_url }}" class="breadcrumb-item">{{ posts_title }}</a>
-    {%- elsif page.layout == "tag" or page.url contains "/tags/" -%}
+      <a href="{{ posts_url | relative_url }}" class="breadcrumb-item">{{ posts_title }}</a>
+    {%- elsif page.layout == "tag" or page.url == tags_url -%}
       <span class="breadcrumb-separator">»</span>
-      <a href="{{ tags_item.url | default: '/tags/' | relative_url }}" class="breadcrumb-item">{{ tags_title }}</a>
+      <a href="{{ tags_url | relative_url }}" class="breadcrumb-item">{{ tags_title }}</a>
     {%- endif -%}
   </div>
 
