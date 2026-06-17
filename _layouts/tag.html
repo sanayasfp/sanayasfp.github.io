@@ -1,0 +1,30 @@
+---
+layout: base
+---
+
+<article class="post">
+  {% include page-header.html %}
+
+  <div class="tag-results">
+    {%- assign lang = page.lang | default: "fr" -%}
+    {%- assign posts = site.posts | where: "lang", lang -%}
+    
+    <div class="posts-list">
+      {%- for post in posts -%}
+        {%- if post.tags contains page.tag -%}
+          <article class="post-card">
+            <h3 class="post-card-title">
+              <a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
+            </h3>
+            <div class="post-card-meta">
+              {{ post.date | date: "%B %d, %Y" }} · {% include read-time.html content=post.content %}
+            </div>
+            <div class="post-card-excerpt">
+              {{ post.excerpt | strip_html | truncatewords: 30 }}
+            </div>
+          </article>
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+  </div>
+</article>

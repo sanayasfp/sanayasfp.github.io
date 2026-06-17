@@ -1,7 +1,8 @@
 {%- assign lang = page.lang | default: "fr" -%}
 {%- assign nav_data = site.data.navigation[lang] -%}
 {%- assign home = nav_data.menu | first -%}
-{%- assign posts_item = nav_data.menu | where: "title", "Articles" | first | default: (nav_data.menu | where: "title", "Posts" | first) -%}
+{%- assign posts_item = nav_data.menu | where: "url", "/posts/" | first | default: (nav_data.menu | where: "url", "/en/posts/" | first) -%}
+{%- assign tags_item = nav_data.menu | where: "url", "/tags/" | first | default: (nav_data.menu | where: "url", "/en/tags/" | first) -%}
 
 <header class="post-header">
   <div class="breadcrumb">
@@ -9,9 +10,12 @@
     {%- if page.layout == "post" -%}
       <span class="breadcrumb-separator">»</span>
       <a href="{{ posts_item.url | relative_url }}" class="breadcrumb-item">{{ posts_item.title }}</a>
+    {%- elsif page.layout == "tag" -%}
+      <span class="breadcrumb-separator">»</span>
+      <a href="{{ tags_item.url | relative_url }}" class="breadcrumb-item">{{ tags_item.title }}</a>
     {%- endif -%}
   </div>
-  <h1 class="post-title">{{ page.title | escape }}</h1>
+  <h1 class="post-title">{% if page.layout == "tag" %}#{{ page.tag }}{% else %}{{ page.title | escape }}{% endif %}</h1>
   <div class="post-meta-custom">
     {% if page.show_read_time != false %}{% include read-time.html %} · {% endif %}{{ page.author | default: site.author.name | default: site.title }}
   </div>

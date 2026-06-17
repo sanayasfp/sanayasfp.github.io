@@ -13,6 +13,8 @@ fr:
       url: /work-with-me/
     - title: Articles
       url: /posts/
+    - title: Tags
+      url: /tags/
     - title: Recherche
       url: /search/
     - title: Autre
@@ -32,6 +34,8 @@ en:
       url: /en/work-with-me/
     - title: Posts
       url: /en/posts/
+    - title: Tags
+      url: /en/tags/
     - title: Search
       url: /en/search/
     - title: Other
