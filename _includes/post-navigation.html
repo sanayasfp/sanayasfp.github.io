@@ -6,17 +6,34 @@
   {%- assign t_next = "Next" -%}
 {%- endif -%}
 
+{%- assign posts = site.posts | where: "lang", lang -%}
+{%- for post in posts -%}
+  {%- if post.url == page.url -%}
+    {%- assign prev_idx = forloop.index0 | plus: 1 -%}
+    {%- assign next_idx = forloop.index0 | minus: 1 -%}
+    
+    {%- if prev_idx < posts.size -%}
+      {%- assign prev_post = posts[prev_idx] -%}
+    {%- endif -%}
+    
+    {%- if next_idx >= 0 -%}
+      {%- assign next_post = posts[next_idx] -%}
+    {%- endif -%}
+    {%- break -%}
+  {%- endif -%}
+{%- endfor -%}
+
 <div class="post-navigation">
   <div class="prev-post">
-    {% if page.previous %}
+    {% if prev_post %}
       <span class="nav-label">{{ t_prev }}</span>
-      <a href="{{ page.previous.url | relative_url }}">{{ page.previous.title }}</a>
+      <a href="{{ prev_post.url | relative_url }}">{{ prev_post.title }}</a>
     {% endif %}
   </div>
   <div class="next-post">
-    {% if page.next %}
+    {% if next_post %}
       <span class="nav-label">{{ t_next }}</span>
-      <a href="{{ page.next.url | relative_url }}">{{ page.next.title }}</a>
+      <a href="{{ next_post.url | relative_url }}">{{ next_post.title }}</a>
     {% endif %}
   </div>
 </div>
