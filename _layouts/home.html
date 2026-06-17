@@ -7,7 +7,9 @@ layout: base
   {%- assign strings = site.data.navigation[lang] -%}
 
   <header class="home-header" style="margin-top: 40px; margin-bottom: 40px;">
-    <h1 style="font-size: 42px; font-weight: 800; margin-bottom: 15px;">{{ strings.home_greeting }}</h1>
+    <h1
+      style="font-size: 42px; font-weight: 800; margin-bottom: 15px; padding-bottom: 20px; border-bottom: 1px solid rgba(128, 128, 128, 0.8);">
+      {{ strings.home_greeting }}</h1>
     <div style="font-size: 18px; line-height: 1.6; opacity: 0.9; margin-bottom: 25px;">
       {{ strings.home_description | markdownify }}
     </div>
@@ -17,8 +19,6 @@ layout: base
     </div>
 
   </header>
-
-  <hr>
 
   <h2 style="font-size: 28px; font-weight: 700; margin-bottom: 30px;">{{ strings.posts_heading }} -</h2>
 
