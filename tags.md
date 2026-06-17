@@ -25,7 +25,7 @@ lang: fr
         {% endif %}
       {% endfor %}
       
-      <a href="{{ '/tags/' | append: tag | slugify | relative_url }}" class="tag-archive-button">
+      <a href="{{ '/tags/' | relative_url }}{{ tag | slugify }}/" class="tag-archive-button">
         #{{ tag }}
         <span class="tag-count">{{ count }}</span>
       </a>
