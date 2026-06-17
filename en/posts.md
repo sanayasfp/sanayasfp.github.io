@@ -3,6 +3,7 @@ layout: page
 title: Posts
 permalink: /en/posts/
 lang: en
+show_read_time: false
 ---
 
 <div class="posts-list">
