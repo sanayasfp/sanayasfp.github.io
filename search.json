@@ -9,16 +9,30 @@ permalink: /search.json
     {%- if doc.title -%}
       {%- unless first -%},{%- endunless -%}
       {%- assign first = false -%}
+      {%- assign extra_content = "" -%}
+
+      {%- if doc.url contains "work-with-me" -%}
+        {%- assign lang = doc.lang | default: "fr" -%}
+        {%- assign work_data = site.data.work_with_me[lang] -%}
+        {%- for org in work_data.organizations -%}
+          {%- assign extra_content = extra_content | append: org.name | append: " " -%}
+        {%- endfor -%}
+        {%- for testimonial in work_data.testimonials -%}
+          {%- assign extra_content = extra_content | append: testimonial.author | append: " " | append: testimonial.company | append: " " | append: testimonial.quote | append: " " -%}
+        {%- endfor -%}
+      {%- endif -%}
+
       {
         "title"    : {{ doc.title | jsonify }},
         "category" : {{ doc.category | jsonify }},
         "tags"     : {{ doc.tags | join: ', ' | jsonify }},
         "url"      : {{ doc.url | relative_url | jsonify }},
         "date"     : {{ doc.date | date: "%B %d, %Y" | jsonify }},
-        "excerpt"  : {{ doc.excerpt | strip_html | strip_newlines | jsonify }},
-        "content"  : {{ doc.content | strip_html | strip_newlines | jsonify }},
+        "excerpt"  : {{ doc.excerpt | strip_html | strip_newlines | truncatewords: 30 | jsonify }},
+        "content"  : {{ doc.content | append: " " | append: extra_content | strip_html | strip_newlines | truncatewords: 50 | jsonify }},
         "lang"     : {{ doc.lang | default: "fr" | jsonify }}
       }
     {%- endif -%}
   {%- endfor -%}
 ]
+
