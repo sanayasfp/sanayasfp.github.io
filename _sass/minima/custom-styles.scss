@@ -337,14 +337,26 @@ hr {
     flex: 1;
     margin-bottom: 0; // Override standard post-card margin
     padding: 1.2rem;
-    
+
     .post-card-title {
       font-size: 1.3rem;
       margin-bottom: 0.5rem;
     }
 
     .post-card-tags {
-      font-size: 0.95rem;
+      font-size: 0.85rem;
+      color: var(--minima-brand-color);
+      margin-bottom: 0.5rem;
+      font-family: monospace;
+
+      .tag {
+        opacity: 0.9;
+      }
+    }
+
+    .post-card-excerpt {
+      font-size: 1rem;
+      line-height: 1.6;
       color: var(--minima-text-color);
       opacity: 0.8;
       line-height: 1.5;
