@@ -65,9 +65,6 @@ lang: en
 
 <script>
   const originalTitle = document.querySelector('.post-title').textContent;
-  const breadcrumbItems = document.querySelectorAll('.breadcrumb-item');
-  const lastBreadcrumb = breadcrumbItems[breadcrumbItems.length - 1];
-  const originalBreadcrumb = lastBreadcrumb ? lastBreadcrumb.textContent : '';
 
   function handleTagChange() {
     const hash = window.location.hash.substring(1);
@@ -87,7 +84,6 @@ lang: en
         activeGroup.style.display = 'block';
         const displayTag = '#' + hash.replace(/-/g, ' ');
         mainTitle.textContent = displayTag;
-        if (lastBreadcrumb) lastBreadcrumb.textContent = displayTag;
       } else {
         window.location.hash = '';
       }
@@ -95,7 +91,6 @@ lang: en
       cloudSection.style.display = 'block';
       resultsSection.style.display = 'none';
       mainTitle.textContent = originalTitle;
-      if (lastBreadcrumb) lastBreadcrumb.textContent = originalBreadcrumb;
     }
   }
 

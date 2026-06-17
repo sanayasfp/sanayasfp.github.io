@@ -4,12 +4,13 @@
 
 {%- comment -%} Find localized Titles for Breadcrumbs {%- endcomment -%}
 {%- assign posts_title = "Articles" -%}
-{%- assign tags_title = "Tags" -%}
+{%- assign tags_title = "Mots-clés" -%}
 {%- assign posts_url = "/posts/" -%}
 {%- assign tags_url = "/tags/" -%}
 
 {%- if lang == "en" -%}
   {%- assign posts_title = "Posts" -%}
+  {%- assign tags_title = "Tags" -%}
   {%- assign posts_url = "/en/posts/" -%}
   {%- assign tags_url = "/en/tags/" -%}
 {%- endif -%}
