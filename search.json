@@ -20,6 +20,9 @@ permalink: /search.json
         {%- for testimonial in work_data.testimonials -%}
           {%- assign extra_content = extra_content | append: testimonial.author | append: " " | append: testimonial.company | append: " " | append: testimonial.quote | append: " " -%}
         {%- endfor -%}
+        {%- assign final_content = extra_content -%}
+      {%- else -%}
+        {%- assign final_content = doc.content | append: " " | append: extra_content -%}
       {%- endif -%}
 
       {
@@ -28,7 +31,7 @@ permalink: /search.json
         "tags"     : {{ doc.tags | join: ', ' | jsonify }},
         "url"      : {{ doc.url | relative_url | jsonify }},
         "date"     : {{ doc.date | date: "%B %d, %Y" | jsonify }},
-        "content"  : {{ doc.content | append: " " | append: extra_content | strip_html | strip_newlines | truncatewords: 70 | jsonify }},
+        "content"  : {{ final_content | strip_html | strip_newlines | truncatewords: 70 | jsonify }},
         "lang"     : "fr"
       }
     {%- endif -%}
