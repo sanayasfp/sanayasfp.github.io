@@ -36,15 +36,7 @@ lang: en
   </div>
 
   <!-- Tag Results Section -->
-  <div id="tag-results-section" style="display: none; margin-top: 2rem;">
-    <div style="margin-bottom: 2rem;">
-      <a href="/en/tags/" class="tag-archive-button" style="font-size: 0.9rem; padding: 5px 12px;">
-        <i class="bi bi-arrow-left"></i> View all tags
-      </a>
-    </div>
-
-    <h2 id="active-tag-title" class="section-heading" style="margin-bottom: 2rem;"></h2>
-    
+  <div id="tag-results-section" style="display: none; margin-top: 1rem;">
     <div id="tag-posts-list">
       {% for tag in unique_tags %}
         <div class="tag-group" id="group-{{ tag | slugify }}" style="display: none;">
@@ -72,12 +64,17 @@ lang: en
 </div>
 
 <script>
+  const originalTitle = document.querySelector('.post-title').textContent;
+  const breadcrumbItems = document.querySelectorAll('.breadcrumb-item');
+  const lastBreadcrumb = breadcrumbItems[breadcrumbItems.length - 1];
+  const originalBreadcrumb = lastBreadcrumb ? lastBreadcrumb.textContent : '';
+
   function handleTagChange() {
     const hash = window.location.hash.substring(1);
     const cloudSection = document.getElementById('tag-cloud-section');
     const resultsSection = document.getElementById('tag-results-section');
-    const activeTitle = document.getElementById('active-tag-title');
     const groups = document.querySelectorAll('.tag-group');
+    const mainTitle = document.querySelector('.post-title');
 
     if (hash) {
       cloudSection.style.display = 'none';
@@ -88,13 +85,17 @@ lang: en
 
       if (activeGroup) {
         activeGroup.style.display = 'block';
-        activeTitle.textContent = '#' + hash.replace(/-/g, ' ');
+        const displayTag = '#' + hash.replace(/-/g, ' ');
+        mainTitle.textContent = displayTag;
+        if (lastBreadcrumb) lastBreadcrumb.textContent = displayTag;
       } else {
         window.location.hash = '';
       }
     } else {
       cloudSection.style.display = 'block';
       resultsSection.style.display = 'none';
+      mainTitle.textContent = originalTitle;
+      if (lastBreadcrumb) lastBreadcrumb.textContent = originalBreadcrumb;
     }
   }
 
