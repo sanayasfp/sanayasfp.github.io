@@ -15,8 +15,8 @@ $brand-highlight: #f5f841;
   border-radius: 0 !important;
   transition: all 0.2s ease !important;
   text-decoration: none !important;
-  height: 32px; // Fixed height for alignment
-  display: flex;
+  height: 32px;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
   box-sizing: border-box;
