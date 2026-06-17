@@ -22,17 +22,27 @@ lang: fr
         <h3 class="post-card-title">
           <a href="{url}">{title}</a>
         </h3>
-        <div class="post-card-tags">{tags}</div>
-        <div class="post-card-excerpt">{excerpt}</div>
-        <div class="post-card-meta">{date}</div>
+        {tags}
+        {excerpt}
+        {date}
       </article>
     `,
     noResultsText: '<p>Aucun résultat trouvé.</p>',
     limit: 10,
     fuzzy: false,
     templateMiddleware: function(prop, value, template) {
-      if (prop === 'tags' && value) {
-        return value.split(', ').map(t => `<span class="tag">#${t}</span>`).join(' ');
+      if (prop === 'tags') {
+        if (value) {
+          const tagsHtml = value.split(', ').map(t => `<span class="tag">#${t}</span>`).join(' ');
+          return `<div class="post-card-tags">${tagsHtml}</div>`;
+        }
+        return '';
+      }
+      if (prop === 'excerpt') {
+        return value ? `<div class="post-card-excerpt">${value}</div>` : '';
+      }
+      if (prop === 'date') {
+        return value ? `<div class="post-card-meta">${value}</div>` : '';
       }
       return value;
     }
