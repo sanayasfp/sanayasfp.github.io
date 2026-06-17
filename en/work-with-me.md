@@ -9,27 +9,7 @@ lang: en
 
 <p class="availability-status">{{ t.availability }}</p>
 
-<div class="organizations-section">
-  <p class="org-list-sentence">
-    {{ t.org_intro }}
-    {% for org in t.organizations %}
-      <a href="{{ org.url }}">{{ org.name }}</a>{% unless forloop.last %}, {% endunless %}
-    {% endfor %}
-    {{ t.org_others }}
-  </p>
-  
-  <div class="org-grid">
-    {% for org in t.organizations %}
-    <div class="org-item">
-      {% if org.logo %}
-      <img src="{{ org.logo | relative_url }}" alt="{{ org.name }}" title="{{ org.name }}" class="org-logo">
-      {% else %}
-      <span>{{ org.name }}</span>
-      {% endif %}
-    </div>
-    {% endfor %}
-  </div>
-</div>
+{% include work-with-me-orgs.html lang=page.lang %}
 
 <div class="testimonials-section">
   <h3>{{ t.testimonial_title }}</h3>

@@ -1,0 +1,38 @@
+{% assign t = site.data.work_with_me[include.lang] %}
+
+<div class="organizations-section">
+  <p class="org-list-sentence">
+    {{ t.org_intro }}
+    {% for org in t.organizations %}
+      {% if org.url and org.url != "#" %}
+        <a href="{{ org.url }}">{{ org.name }}</a>
+      {% else %}
+        <span>{{ org.name }}</span>
+      {% endif %}
+      {% unless forloop.last %}, {% endunless %}
+    {% endfor %}
+    {{ t.org_others }}
+  </p>
+  
+  <div class="org-grid">
+    {% for org in t.organizations %}
+      {% if org.url and org.url != "#" %}
+      <a href="{{ org.url }}" class="org-item" target="_blank">
+        {% if org.logo %}
+        <img src="{{ org.logo | relative_url }}" alt="{{ org.name }}" title="{{ org.name }}" class="org-logo">
+        {% else %}
+        <span>{{ org.name }}</span>
+        {% endif %}
+      </a>
+      {% else %}
+      <div class="org-item">
+        {% if org.logo %}
+        <img src="{{ org.logo | relative_url }}" alt="{{ org.name }}" title="{{ org.name }}" class="org-logo">
+        {% else %}
+        <span>{{ org.name }}</span>
+        {% endif %}
+      </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+</div>
