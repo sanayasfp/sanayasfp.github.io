@@ -314,6 +314,125 @@ hr {
   }
 }
 
+.home-posts-list {
+  margin-top: 20px;
+}
+
+.home-post-item {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 25px;
+  gap: 30px;
+
+  .post-date-tab {
+    flex: 0 0 120px;
+    font-size: 0.9rem;
+    color: var(--minima-brand-color);
+    padding-top: 15px; // Align with the card content
+    text-align: right;
+    white-space: nowrap;
+  }
+
+  .home-post-card {
+    flex: 1;
+    margin-bottom: 0; // Override standard post-card margin
+    padding: 1.2rem;
+    
+    .post-card-title {
+      font-size: 1.3rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .post-card-tags {
+      font-size: 0.95rem;
+      color: var(--minima-text-color);
+      opacity: 0.8;
+      line-height: 1.5;
+    }
+  }
+}
+
+// Responsive adjustments for the tabulated layout
+@media (max-width: 768px) {
+  .home-post-item {
+    flex-direction: column;
+    gap: 10px;
+
+    .post-date-tab {
+      text-align: left;
+      flex: none;
+      padding-top: 0;
+      margin-left: 1.5rem; // Align roughly with the card content
+    }
+  }
+}
+
+.post-card {
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  background: var(--minima-background-color);
+  border: 1px solid var(--minima-border-color-01);
+  border-left: 4px solid #181818; // Dark on light mode
+  transition: all 0.3s ease;
+  position: relative;
+
+  &:hover {
+    transform: scale(1.02);
+    border-color: $brand-highlight;
+    border-left-color: $brand-highlight;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+
+    .post-card-title a {
+      color: var(--minima-link-hover-color);
+    }
+  }
+
+  .post-card-title {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    font-size: 1.5rem;
+    font-weight: 700;
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+  }
+
+  .post-card-meta {
+    font-size: 0.85rem;
+    color: var(--minima-brand-color);
+    margin-top: 1rem;
+    margin-bottom: 0;
+  }
+
+  .post-card-excerpt {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--minima-text-color);
+  }
+}
+
+// Border highlight for dark mode
+html[data-theme="dark"] .post-card {
+  border-left-color: #fdfdfd; // Light on dark mode
+
+  &:hover {
+    border-left-color: $brand-highlight;
+  }
+}
+
+// Media query for prefers-color-scheme dark
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme="light"]) .post-card {
+    border-left-color: #fdfdfd;
+
+    &:hover {
+      border-left-color: $brand-highlight;
+    }
+  }
+}
+
 .section-heading {
   display: flex;
   align-items: center;

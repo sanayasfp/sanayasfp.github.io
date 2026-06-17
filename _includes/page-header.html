@@ -5,6 +5,6 @@
   <a href="{{ home.url | relative_url }}" class="breadcrumb-home">{{ home.title }}</a>
   <h1 class="post-title">{{ page.title | escape }}</h1>
   <div class="post-meta-custom">
-    {% include read-time.html %} · {{ page.author | default: site.author.name | default: site.title }}
+    {% if page.show_read_time != false %}{% include read-time.html %} · {% endif %}{{ page.author | default: site.author.name | default: site.title }}
   </div>
 </header>
