@@ -6,12 +6,25 @@
     {%- assign home = nav_data.menu | first -%}
     
     <a class="site-title" rel="author" href="{{ home.url | relative_url }}">{{ site.title | escape }}</a>
-    {% include theme-toggle.html %}
+    
+    <div class="header-controls">
+      {% include theme-toggle.html %}
+
+      <div class="lang-switcher">
+        {%- if lang == "fr" -%}
+          <a href="{{ page.url | replace: '/', '/en/' | replace: '//', '/' | relative_url }}" class="lang-link">EN</a>
+        {%- else -%}
+          <a href="{{ page.url | replace: '/en/', '/' | relative_url }}" class="lang-link">FR</a>
+        {%- endif -%}
+      </div>
+    </div>
 
     <nav class="site-nav">
       <input type="checkbox" id="nav-trigger" />
       <label for="nav-trigger">
-        <span class="menu-icon"></span>
+        <span class="menu-icon">
+          <i class="bi bi-list"></i>
+        </span>
       </label>
 
       {% include nav-items.html navigation = nav_data.menu %}
