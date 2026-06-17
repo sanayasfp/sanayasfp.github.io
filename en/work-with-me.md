@@ -10,7 +10,14 @@ lang: en
 <p class="availability-status">{{ t.availability }}</p>
 
 <div class="organizations-section">
-  <h3>{{ t.org_title }}</h3>
+  <p class="org-list-sentence">
+    {{ t.org_intro }}
+    {% for org in t.organizations %}
+      <a href="{{ org.url }}">{{ org.name }}</a>{% unless forloop.last %}, {% endunless %}
+    {% endfor %}
+    {{ t.org_others }}
+  </p>
+  
   <div class="org-grid">
     {% for org in t.organizations %}
     <div class="org-item">

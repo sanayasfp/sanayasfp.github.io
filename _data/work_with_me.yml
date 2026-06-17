@@ -1,6 +1,7 @@
 fr:
   availability: "Je suis disponible pour des missions de consulting, de développement Full Stack et d'ingénierie IA."
-  org_title: "Organisations avec lesquelles j'ai collaboré :"
+  org_intro: "Les organisations avec lesquelles j'ai collaboré incluent : "
+  org_others: " et d'autres."
   testimonial_title: "Témoignages :"
   organizations:
     - name: "Edane SA"
@@ -28,7 +29,8 @@ fr:
 
 en:
   availability: "I am available for consulting, Full Stack development, and AI engineering engagements."
-  org_title: "Organizations I've worked with:"
+  org_intro: "Organizations I’ve worked with include: "
+  org_others: " and others."
   testimonial_title: "Testimonials:"
   organizations:
     - name: "Edane SA"
