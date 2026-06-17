@@ -20,7 +20,7 @@ layout: base
 
   </header>
 
-  <h2 style="font-size: 28px; font-weight: 700; margin-bottom: 30px;">{{ strings.posts_heading }} -</h2>
+  <h2 class="section-heading">{{ strings.posts_heading }}</h2>
 
   {%- assign posts = site.posts | where: "lang", lang -%}
   {%- if posts.size > 0 -%}

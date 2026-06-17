@@ -314,6 +314,23 @@ hr {
   }
 }
 
+.section-heading {
+  display: flex;
+  align-items: center;
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 30px;
+  white-space: nowrap;
+
+  &::after {
+    content: "";
+    flex: 1;
+    margin-left: 20px;
+    height: 1px;
+    background: rgba(128, 128, 128, 0.8);
+  }
+}
+
 .home {
 
   .social-links-home {
