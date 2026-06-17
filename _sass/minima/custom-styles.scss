@@ -227,9 +227,9 @@ hr {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 80px; // Keep height consistent
-    width: auto;   // Allow width to be flexible
-    min-width: 120px;
+    height: 40px;
+    width: auto;
+    min-width: 40px;
     transition: all 0.2s ease;
     box-shadow: 0 2px 4px rgba(0,0,0,0.05);
     text-decoration: none;
@@ -243,25 +243,19 @@ hr {
     }
 
     .org-logo {
-      height: 100%; // Fill the height
-      width: auto;   // Maintain aspect ratio width
-      max-width: 250px; // Cap extremely wide logos
+      height: 100%;
+      width: auto;
+      max-width: 250px;
       object-fit: contain;
-      filter: grayscale(100%);
       opacity: 0.8;
       transition: all 0.2s ease;
-
-      &:hover {
-        filter: grayscale(0%);
-        opacity: 1;
-      }
     }
 
     span {
       font-weight: 600;
       font-size: 0.9rem;
       color: #333;
-      white-space: nowrap; // Prevent text fallback from wrapping
+      white-space: nowrap;
     }
   }
 }
