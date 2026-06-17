@@ -15,8 +15,8 @@ permalink: /search.json
         "tags"     : {{ doc.tags | join: ', ' | jsonify }},
         "url"      : {{ doc.url | relative_url | jsonify }},
         "date"     : {{ doc.date | date: "%B %d, %Y" | jsonify }},
-        "excerpt"  : {{ doc.excerpt | strip_html | strip_newlines | truncatewords: 30 | jsonify }},
-        "content"  : {{ doc.content | strip_html | strip_newlines | truncatewords: 50 | jsonify }},
+        "excerpt"  : {{ doc.excerpt | strip_html | strip_newlines | jsonify }},
+        "content"  : {{ doc.content | strip_html | strip_newlines | jsonify }},
         "lang"     : {{ doc.lang | default: "fr" | jsonify }}
       }
     {%- endif -%}
