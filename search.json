@@ -1,0 +1,21 @@
+---
+layout: none
+---
+[
+  {%- assign documents = site.posts | concat: site.pages -%}
+  {%- for doc in documents -%}
+    {%- if doc.title -%}
+    {
+      "title"    : {{ doc.title | jsonify }},
+      "category" : {{ doc.category | jsonify }},
+      "tags"     : {{ doc.tags | join: ', ' | jsonify }},
+      "url"      : {{ doc.url | relative_url | jsonify }},
+      "date"     : {{ doc.date | date: "%B %d, %Y" | jsonify }},
+      "excerpt"  : {{ doc.excerpt | strip_html | strip_newlines | truncatewords: 30 | jsonify }},
+      "content"  : {{ doc.content | strip_html | strip_newlines | truncatewords: 50 | jsonify }},
+      "lang"     : {{ doc.lang | default: "fr" | jsonify }}
+    }
+    {%- unless forloop.last -%},{%- endunless -%}
+    {%- endif -%}
+  {%- endfor -%}
+]
