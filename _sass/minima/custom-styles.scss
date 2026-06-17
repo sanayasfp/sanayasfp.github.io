@@ -319,17 +319,18 @@ hr {
 
   .search-input {
     width: 100%;
+    box-sizing: border-box;
     padding: 12px 20px;
     font-size: 1.1rem;
     color: var(--minima-text-color);
     background-color: var(--minima-background-color);
-    border: 1px solid var(--minima-border-color-01);
+    border: 1px solid #181818; // Dark on light mode
     border-radius: 0;
     outline: none;
     transition: all 0.2s ease;
 
     &:focus {
-      border-color: $brand-highlight;
+      border-color: $brand-highlight !important;
       box-shadow: 0 0 0 2px rgba(245, 248, 65, 0.2);
     }
   }
@@ -338,6 +339,17 @@ hr {
     list-style: none;
     padding: 0;
     margin-top: 2rem;
+  }
+}
+
+// Search input light border for dark mode
+html[data-theme="dark"] .search-input {
+  border-color: #fdfdfd;
+}
+
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme="light"]) .search-input {
+    border-color: #fdfdfd;
   }
 }
 
