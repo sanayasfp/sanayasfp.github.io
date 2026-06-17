@@ -383,7 +383,10 @@ hr {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 
     .post-card-title a {
-      color: var(--minima-link-hover-color);
+      background-color: $brand-highlight;
+      color: #181818 !important;
+      padding: 2px 4px;
+      margin-left: -4px;
     }
   }
 
