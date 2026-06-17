@@ -188,6 +188,119 @@ hr {
   opacity: 0.8;
 }
 
+// Work With Me Styles
+.availability-status {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+.organizations-section {
+  margin-bottom: 3rem;
+
+  h3 {
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+    color: var(--minima-brand-color);
+  }
+}
+
+.org-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+
+  .org-item {
+    background: #fff; // White background for logos like in the image
+    border: 1px solid var(--minima-border-color-01);
+    padding: 15px 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 140px;
+    height: 80px; // Fixed height for alignment
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+
+    &:hover {
+      border-color: $brand-highlight;
+      transform: translateY(-2px);
+    }
+
+    .org-logo {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      filter: grayscale(100%); // Optional: for a uniform look
+      opacity: 0.8;
+      transition: all 0.2s ease;
+
+      &:hover {
+        filter: grayscale(0%);
+        opacity: 1;
+      }
+    }
+
+    span {
+      font-weight: 600;
+      font-size: 0.9rem;
+      color: #333;
+    }
+  }
+}
+
+.testimonials-section {
+  h3 {
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+    color: var(--minima-brand-color);
+  }
+}
+
+.testimonial-item {
+  margin-bottom: 2.5rem;
+
+  .testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+
+    .testimonial-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 1px solid var(--minima-border-color-01);
+    }
+
+    .author-info {
+      font-size: 0.95rem;
+      
+      .author-name {
+        font-weight: bold;
+        text-decoration: underline;
+        color: var(--minima-link-base-color);
+      }
+    }
+  }
+
+  .testimonial-quote {
+    margin: 0;
+    padding: 1.5rem;
+    background: var(--minima-background-color);
+    border: 1px solid var(--minima-border-color-01);
+    border-left: 4px solid $brand-highlight;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--minima-text-color);
+    position: relative;
+
+    &::before {
+      content: none;
+    }
+  }
+}
+
 // Overrides pour le sélecteur de thème manuel
 html[data-theme="light"] {
   --minima-brand-color: #{$lm-brand-color};
