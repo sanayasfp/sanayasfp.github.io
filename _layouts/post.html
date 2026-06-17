@@ -21,10 +21,10 @@ layout: base
   {% if page.tags.size > 0 %}
     <div class="post-tags-container">
       {%- assign lang = page.lang | default: "fr" -%}
-      {%- assign tag_base = "/tags/" -%}
-      {%- if lang == "en" -%}{%- assign tag_base = "/en/tags/" -%}{%- endif -%}
+      {%- assign tag_page = "/tags/" -%}
+      {%- if lang == "en" -%}{%- assign tag_page = "/en/tags/" -%}{%- endif -%}
       {% for tag in page.tags %}
-        <a href="{{ tag_base | relative_url }}{{ tag | slugify }}/" class="tag-button">#{{ tag }}</a>
+        <a href="{{ tag_page | relative_url }}#{{ tag | slugify }}" class="tag-button">#{{ tag }}</a>
       {% endfor %}
     </div>
   {% endif %}
