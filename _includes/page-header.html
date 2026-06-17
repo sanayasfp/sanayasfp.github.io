@@ -1,8 +1,16 @@
 {%- assign lang = page.lang | default: "fr" -%}
-{%- assign home = site.data.navigation[lang].menu | first -%}
+{%- assign nav_data = site.data.navigation[lang] -%}
+{%- assign home = nav_data.menu | first -%}
+{%- assign posts_item = nav_data.menu | where: "title", "Articles" | first | default: (nav_data.menu | where: "title", "Posts" | first) -%}
 
 <header class="post-header">
-  <a href="{{ home.url | relative_url }}" class="breadcrumb-home">{{ home.title }}</a>
+  <div class="breadcrumb">
+    <a href="{{ home.url | relative_url }}" class="breadcrumb-item">{{ home.title }}</a>
+    {%- if page.layout == "post" -%}
+      <span class="breadcrumb-separator">»</span>
+      <a href="{{ posts_item.url | relative_url }}" class="breadcrumb-item">{{ posts_item.title }}</a>
+    {%- endif -%}
+  </div>
   <h1 class="post-title">{{ page.title | escape }}</h1>
   <div class="post-meta-custom">
     {% if page.show_read_time != false %}{% include read-time.html %} · {% endif %}{{ page.author | default: site.author.name | default: site.title }}

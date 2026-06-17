@@ -1,0 +1,64 @@
+- id: external-blog-posts
+  title:
+    fr: "Articles de blog écrits pour d'autres organisations"
+    en: "Blog posts I wrote for other organizations"
+  items:
+    - title:
+        fr: "Comment créer un portfolio exceptionnel en science des données"
+        en: "How to Create an Outstanding Data Science Portfolio"
+      year: 2021
+      date: 2021-06-01
+      type: link
+      url: "#"
+    - title:
+        fr: "Portfolio en science des données : Tirer le meilleur parti de GitHub"
+        en: "Data Science Portfolio: Making the Most Out of GitHub"
+      year: 2021
+      date: 2021-08-15
+      type: link
+      url: "#"
+
+- id: talks-presentations
+  title:
+    fr: "Conférences et présentations"
+    en: "Talks and presentations"
+  items:
+    - title:
+        fr: "Au-delà des bases de la recherche de similarité"
+        en: "Beyond the basics of similarity search"
+      venue: "PyData Montreal"
+      year: 2019
+      date: 2019-10-20
+      type: video
+      youtube_id: "dQw4w9WgXcQ"
+    - title:
+        fr: "Meilleures pratiques MLOps pour construire des projets ML de bout en bout"
+        en: "Best MLOps Practices for Building End-to-End ML Projects"
+      venue: "DataTalksClub"
+      year: 2022
+      date: 2022-03-10
+      type: video
+      youtube_id: "dQw4w9WgXcQ"
+    - title:
+        fr: "MLOps Open Source en 4 semaines"
+        en: "Open Source MLOps in 4 Weeks"
+      description:
+        fr: "Matériel de cours pour le programme « Open Source MLOps in 4 Weeks » que j'enseigne sur oreilly.com"
+        en: "Course materials for the “Open Source MLOps in 4 Weeks” that I teach at oreilly.com"
+      type: card
+      date: 2023-01-01
+      links:
+        - text:
+            fr: "Intro du cours"
+            en: "Course Intro"
+          url: "#"
+        - text:
+            fr: "Slides"
+            en: "Slides"
+          url: "#"
+        - text:
+            fr: "Code de départ"
+            en: "Starter Code"
+          url: "#"
+      read_time: "1 min"
+      author: "Alex Kim"

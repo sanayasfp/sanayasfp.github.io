@@ -127,15 +127,26 @@ html[data-theme="dark"] {
   gap: 8px;
 }
 
-.breadcrumb-home {
+.breadcrumb {
   font-size: 14px;
-  // margin-bottom: 20px;
-  display: block;
-  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
   color: var(--minima-brand-color);
+  margin-bottom: 5px;
 
-  &:hover {
-    text-decoration: underline;
+  .breadcrumb-item {
+    text-decoration: none;
+    color: inherit;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  .breadcrumb-separator {
+    opacity: 0.6;
+    font-size: 12px;
   }
 }
 

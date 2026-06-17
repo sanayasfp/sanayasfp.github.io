@@ -5,4 +5,4 @@ permalink: /en/other/
 lang: en
 ---
 
-Other interesting resources and links will be added here.
+{% include others-list.html lang=page.lang %}

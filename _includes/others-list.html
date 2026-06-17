@@ -1,0 +1,117 @@
+{% assign sections = site.data.others %}
+{% assign lang = include.lang | default: "fr" %}
+
+<div class="others-container">
+  {% for section in sections %}
+    <section class="other-section" id="{{ section.id }}">
+      <h2 class="section-title">
+        {{ section.title[lang] }}
+        <a class="header-anchor" href="#{{ section.id }}" aria-hidden="true">#</a>
+      </h2>
+      
+      <ul class="other-items">
+        {% assign sorted_items = section.items | sort: "date" | reverse %}
+        {% for item in sorted_items %}
+          {% assign item_title = item.title[lang] | default: item.title %}
+          <li class="other-item-wrapper">
+            {% if item.type == "link" or item.type == "video" %}
+              <div class="other-bullet-item">
+                <span class="bullet">.</span>
+                <span class="item-content">
+                  {% if item.url %}<a href="{{ item.url }}">{% endif %}
+                  <strong>{{ item_title }}</strong>{% if item.venue %}, {{ item.venue }}{% endif %}, {{ item.year }}
+                  {% if item.url %}</a>{% endif %}
+                </span>
+              </div>
+              
+              {% if item.type == "video" and item.youtube_id %}
+                <div class="video-preview">
+                  <iframe width="560" height="315" src="https://www.youtube.com/embed/{{ item.youtube_id }}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+              {% endif %}
+
+            {% elsif item.type == "card" %}
+              <div class="other-card">
+                <h3 class="card-title">{{ item_title }}</h3>
+                {% assign item_desc = item.description[lang] | default: item.description %}
+                <p class="card-description">{{ item_desc }}</p>
+                <div class="card-links">
+                  {% for link in item.links %}
+                    {% assign link_text = link.text[lang] | default: link.text %}
+                    <a href="{{ link.url }}" class="card-link">{{ link_text }}</a>
+                  {% endfor %}
+                </div>
+                <div class="card-meta">
+                  {{ item.read_time }} · {{ item.author }}
+                </div>
+              </div>
+            {% endif %}
+          </li>
+        {% endfor %}
+      </ul>
+    </section>
+  {% endfor %}
+</div>
+
+<style>
+.other-section {
+  margin-bottom: 3rem;
+}
+
+.section-title {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.header-anchor {
+  margin-left: 10px;
+  opacity: 0;
+  text-decoration: none;
+  color: #f5f841;
+  font-weight: bold;
+  transition: opacity 0.2s;
+}
+
+.section-title:hover .header-anchor {
+  opacity: 1;
+}
+
+.other-card {
+  padding: 1.5rem;
+  background: var(--minima-background-color);
+  border: 1px solid var(--minima-border-color-01);
+  border-left: 4px solid #f5f841;
+  margin-top: 1rem;
+}
+
+.other-card .card-title {
+  margin-top: 0;
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.other-card .card-description {
+  margin-bottom: 1rem;
+  color: var(--minima-text-color);
+  opacity: 0.9;
+}
+
+.other-card .card-links {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+
+.other-card .card-link {
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.other-card .card-meta {
+  font-size: 0.85rem;
+  color: var(--minima-brand-color);
+}
+</style>
