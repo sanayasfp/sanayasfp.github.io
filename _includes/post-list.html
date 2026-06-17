@@ -13,11 +13,9 @@
       {%- endfor -%}
     </div>
     {%- endif -%}
-    {%- if post.excerpt -%}
-    <div class="post-card-excerpt">
-      {{ post.excerpt | strip_html | truncatewords: 30 }}
+    <div class="post-card-content">
+      {{ post.content | strip_html | strip_newlines }}
     </div>
-    {%- endif -%}
     <div class="post-card-meta">
       {{ post.date | date: "%B %d, %Y" }} · {% include read-time.html content=post.content %} · {{ post.author | default: site.author.name | default: site.title }}
     </div>

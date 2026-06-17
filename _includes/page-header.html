@@ -1,22 +1,47 @@
 {%- assign lang = page.lang | default: "fr" -%}
 {%- assign nav_data = site.data.navigation[lang] -%}
 {%- assign home = nav_data.menu | first -%}
-{%- assign posts_item = nav_data.menu | where: "url", "/posts/" | first | default: (nav_data.menu | where: "url", "/en/posts/" | first) -%}
-{%- assign tags_item = nav_data.menu | where: "url", "/tags/" | first | default: (nav_data.menu | where: "url", "/en/tags/" | first) -%}
+
+{%- comment -%} Find localized Titles for Breadcrumbs {%- endcomment -%}
+{%- assign posts_title = "Articles" -%}
+{%- assign tags_title = "Tags" -%}
+
+{%- for item in nav_data.menu -%}
+  {%- if item.url contains "posts" -%}
+    {%- assign posts_item = item -%}
+    {%- assign posts_title = item.title -%}
+  {%- endif -%}
+  {%- if item.url contains "tags" -%}
+    {%- assign tags_item = item -%}
+    {%- assign tags_title = item.title -%}
+  {%- endif -%}
+{%- endfor -%}
 
 <header class="post-header">
   <div class="breadcrumb">
     <a href="{{ home.url | relative_url }}" class="breadcrumb-item">{{ home.title }}</a>
-    {%- if page.layout == "post" -%}
+    
+    {%- if page.layout == "post" or page.url contains "/posts/" -%}
       <span class="breadcrumb-separator">»</span>
-      <a href="{{ posts_item.url | relative_url }}" class="breadcrumb-item">{{ posts_item.title }}</a>
-    {%- elsif page.layout == "tag" -%}
+      <a href="{{ posts_item.url | default: '/posts/' | relative_url }}" class="breadcrumb-item">{{ posts_title }}</a>
+    {%- elsif page.layout == "tag" or page.url contains "/tags/" -%}
       <span class="breadcrumb-separator">»</span>
-      <a href="{{ tags_item.url | relative_url }}" class="breadcrumb-item">{{ tags_item.title }}</a>
+      <a href="{{ tags_item.url | default: '/tags/' | relative_url }}" class="breadcrumb-item">{{ tags_title }}</a>
     {%- endif -%}
   </div>
-  <h1 class="post-title">{% if page.layout == "tag" %}#{{ page.tag }}{% else %}{{ page.title | escape }}{% endif %}</h1>
-  <div class="post-meta-custom">
-    {% if page.show_read_time != false %}{% include read-time.html %} · {% endif %}{{ page.author | default: site.author.name | default: site.title }}
-  </div>
+
+  <h1 class="post-title">
+    {%- if page.layout == "tag" -%}
+      #{{ page.tag }}
+    {%- else -%}
+      {{ page.title | escape }}
+    {%- endif -%}
+  </h1>
+
+  {%- if page.layout == "post" -%}
+    <div class="post-meta-custom">
+      {% if page.show_read_time != false %}{% include read-time.html %} · {% endif %}
+      {{ page.author | default: site.author.name | default: site.title }}
+    </div>
+  {%- endif -%}
 </header>

@@ -28,7 +28,7 @@ lang: en
               <a href="{url}">{title}</a>
             </h3>
             {tags}
-            {excerpt}
+            <div class="post-card-content">{content}</div>
             {date}
           </article>
         `,
@@ -42,9 +42,6 @@ lang: en
               return `<div class="post-card-tags">${tagsHtml}</div>`;
             }
             return '';
-          }
-          if (prop === 'excerpt') {
-            return value ? `<div class="post-card-excerpt">${value}</div>` : '';
           }
           if (prop === 'date') {
             return value ? `<div class="post-card-meta">${value}</div>` : '';
