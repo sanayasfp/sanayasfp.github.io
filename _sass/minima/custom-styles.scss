@@ -1,11 +1,47 @@
 $brand-highlight: #f5f841;
-
 .header-controls {
   display: flex;
   align-items: center;
-  gap: 15px;
+  gap: 5px;
   float: right;
-  line-height: 54px; // Align with site title
+  height: 54px; // Match header height
+}
+
+// Common style for header interactive items
+.nav-link,
+.lang-link,
+#theme-toggle {
+  padding: 4px 10px !important;
+  border-radius: 0 !important;
+  transition: all 0.2s ease !important;
+  text-decoration: none !important;
+  height: 32px; // Fixed height for alignment
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  background: none;
+  color: var(--minima-text-color) !important;
+  cursor: pointer;
+  font-family: inherit;
+
+  &:hover {
+    background-color: $brand-highlight !important;
+    color: #181818 !important;
+    text-decoration: none !important;
+    opacity: 1 !important;
+    border-color: $brand-highlight !important;
+  }
+}
+
+// Borders only for header controls
+.lang-link,
+#theme-toggle {
+  border: 1px solid rgba(128, 128, 128, 0.8) !important;
+}
+
+.nav-link {
+  border: none !important;
 }
 
 .lang-switcher {
@@ -13,26 +49,18 @@ $brand-highlight: #f5f841;
   align-items: center;
   font-size: 13px;
   font-weight: bold;
+}
 
-  .lang-link {
-    padding: 2px 6px;
-    border: 1px solid rgba(128, 128, 128, 0.8);
-    text-decoration: none;
-    color: var(--minima-text-color);
-    transition: all 0.2s ease;
-
-    &:hover {
-      background-color: $brand-highlight;
-      border-color: $brand-highlight;
-      color: #181818;
-    }
-  }
+#theme-toggle {
+  font-size: 1.1rem;
+  margin-left: 0 !important;
 }
 
 // Adjust site-title for flex layout if needed
 .site-title {
   float: left;
 }
+
 
 .site-header {
   .menu-icon {
