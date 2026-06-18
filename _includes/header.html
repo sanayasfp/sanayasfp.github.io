@@ -16,9 +16,9 @@
 
         <div class="lang-switcher">
           {%- if lang == "fr" -%}
-            <a href="{{ page.url | replace: '/', '/en/' | replace: '//', '/' | relative_url }}" class="lang-link">EN</a>
+            <a href="{{ page.url | prepend: '/en' | relative_url }}" class="lang-link">EN</a>
           {%- else -%}
-            <a href="{{ page.url | replace: '/en/', '/' | relative_url }}" class="lang-link">FR</a>
+            <a href="{{ page.url | remove_first: '/en' | relative_url }}" class="lang-link">FR</a>
           {%- endif -%}
         </div>
       </div>
