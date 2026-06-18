@@ -40,7 +40,6 @@ $brand-highlight: #f5f841;
 
   label[for="nav-trigger"] {
     display: none;
-    height: 54px;
     align-items: center;
     justify-content: center;
     margin-bottom: 0;
@@ -51,7 +50,8 @@ $brand-highlight: #f5f841;
 // Common style for header interactive items
 .nav-link,
 .lang-link,
-#theme-toggle {
+#theme-toggle,
+label[for="nav-trigger"] {
   padding: 4px 10px !important;
   border-radius: 0 !important;
   transition: all 0.2s ease !important;
@@ -72,12 +72,17 @@ $brand-highlight: #f5f841;
     text-decoration: none !important;
     opacity: 1 !important;
     border-color: $brand-highlight !important;
+
+    .menu-icon i {
+      color: #181818 !important;
+    }
   }
 }
 
 // Borders only for header controls
 .lang-link,
-#theme-toggle {
+#theme-toggle,
+label[for="nav-trigger"] {
   border: 1px solid rgba(128, 128, 128, 0.8) !important;
 }
 
