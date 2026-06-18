@@ -13,18 +13,8 @@ $brand-highlight: #f5f841;
 
 .site-title {
   float: none !important;
-  margin-right: auto !important;
   line-height: 54px;
   padding-right: 20px;
-}
-
-.header-controls {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  height: 54px;
-  margin-right: 10px;
-  float: none !important;
 }
 
 .site-nav {
@@ -32,6 +22,7 @@ $brand-highlight: #f5f841;
   position: static !important;
   background: none !important;
   border: none !important;
+  margin-left: auto; // Push nav items to the right
 
   .nav-items {
     display: flex;
@@ -46,6 +37,15 @@ $brand-highlight: #f5f841;
     cursor: pointer;
     height: 32px !important;
   }
+}
+
+.header-controls {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  height: 54px;
+  margin-left: 10px; // Space between nav and controls
+  float: none !important;
 }
 
 // Common style for header interactive items
