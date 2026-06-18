@@ -14,7 +14,7 @@ $brand-highlight: #f5f841;
 .site-title {
   float: none !important;
   line-height: 54px;
-  padding-right: 20px;
+  margin: 0 !important;
 }
 
 .site-nav {
@@ -22,30 +22,33 @@ $brand-highlight: #f5f841;
   position: static !important;
   background: none !important;
   border: none !important;
-  margin-left: auto; // Push nav items to the right
+  margin: 0 !important;
+  display: flex;
+  align-items: center;
+  gap: 5px;
 
   .nav-items {
     display: flex;
     align-items: center;
+    gap: 5px;
+    margin: 0 !important;
+  }
+
+  .header-controls {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin: 0 !important;
   }
 
   label[for="nav-trigger"] {
     display: none;
     align-items: center;
     justify-content: center;
-    margin-bottom: 0;
     cursor: pointer;
     height: 32px !important;
+    margin: 0 !important;
   }
-}
-
-.header-controls {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  height: 54px;
-  margin-left: 5px;
-  float: none !important;
 }
 
 // Common style for header interactive items
@@ -53,6 +56,7 @@ $brand-highlight: #f5f841;
 .lang-link,
 #theme-toggle,
 label[for="nav-trigger"] {
+  margin: 0 !important;
   padding: 4px 10px !important;
   border-radius: 0 !important;
   transition: all 0.2s ease !important;
@@ -66,6 +70,7 @@ label[for="nav-trigger"] {
   color: var(--minima-text-color) !important;
   cursor: pointer;
   font-family: inherit;
+  font-size: 14px;
 
   &:hover {
     background-color: $brand-highlight !important;
@@ -127,15 +132,7 @@ label[for="nav-trigger"] {
 
 // Mobile specific overrides
 @media screen and (max-width: 600px) {
-  .site-header .wrapper {
-    flex-wrap: wrap;
-    padding: 0 15px;
-  }
-
   .site-nav {
-    order: 3;
-    width: auto;
-
     label[for="nav-trigger"] {
       display: flex !important;
     }
@@ -150,30 +147,31 @@ label[for="nav-trigger"] {
       border-bottom: 1px solid rgba(128, 128, 128, 0.8);
       flex-direction: column;
       align-items: flex-start;
+      gap: 0;
       width: 100%;
       z-index: 1000;
-      padding: 10px 0;
-      
+      padding: 5px 0;
+
       .nav-link {
         width: 100%;
         justify-content: flex-start;
-        padding: 4px 20px !important;
-        margin-left: 0 !important;
+        padding: 8px 20px !important;
+        margin: 0 !important;
+        height: auto;
+        border: none !important;
       }
     }
 
     #nav-trigger:checked ~ .nav-items {
       display: flex;
     }
-  }
 
-  .header-controls {
-    order: 2;
-    margin-right: 5px;
+    #nav-trigger:checked ~ label[for="nav-trigger"] .menu-icon i::before {
+      content: "\f62a";
+    }
   }
 
   .site-title {
-    order: 1;
     font-size: 1.2rem !important;
     padding-right: 0;
     margin-right: auto !important;
