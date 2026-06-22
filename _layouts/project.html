@@ -5,6 +5,36 @@ layout: base
 
   {% include page-header.html %}
 
+  <div class="project-meta-card" style="margin-bottom: 25px; padding: 20px; background-color: var(--card-bg, rgba(128, 128, 128, 0.05)); border: 1px solid var(--border-color, rgba(128, 128, 128, 0.2)); border-radius: 8px; display: flex; flex-direction: column; gap: 10px; font-size: 0.95em;">
+    {%- if page.company -%}
+    <div class="project-meta-item">
+      <strong style="min-width: 120px; display: inline-block;">Company:</strong> 
+      <span>{{ page.company }}</span>
+    </div>
+    {%- endif -%}
+    
+    {%- if page.role -%}
+    <div class="project-meta-item">
+      <strong style="min-width: 120px; display: inline-block;">Role:</strong> 
+      <span>{{ page.role }}</span>
+    </div>
+    {%- endif -%}
+    
+    {%- if page.live_demo -%}
+    <div class="project-meta-item">
+      <strong style="min-width: 120px; display: inline-block;">Live Demo:</strong> 
+      <a href="{{ page.live_demo }}" target="_blank" rel="noopener noreferrer" style="color: var(--link-color); text-decoration: none;">View Project &rarr;</a>
+    </div>
+    {%- endif -%}
+    
+    {%- if page.github_repo -%}
+    <div class="project-meta-item">
+      <strong style="min-width: 120px; display: inline-block;">Repository:</strong> 
+      <a href="{{ page.github_repo }}" target="_blank" rel="noopener noreferrer" style="color: var(--link-color); text-decoration: none;">Source Code</a>
+    </div>
+    {%- endif -%}
+  </div>
+
   {%- if page.image -%}
     <div class="post-hero-image">
       <img src="{{ page.image | relative_url }}" alt="{{ page.title | escape }}">

@@ -5,6 +5,10 @@ date: 2026-06-22 14:15:00 +0000
 lang: fr
 tags: [System Design, Backend, GeoSpatial, Go, Microservices]
 type: project
+company: "TechLogistics Europe"
+role: "Lead Backend Engineer"
+live_demo: "https://example.com/laplace-nearby-demo"
+github_repo: "https://github.com/sanayasfp/laplace-nearby"
 ---
 
 ## 1. Contexte & Executive Summary

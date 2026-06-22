@@ -5,6 +5,10 @@ date: 2026-06-22 14:00:00 +0000
 lang: fr
 tags: [Computer Vision, System Design, Backend, Machine Learning]
 type: project
+company: "AssurAuto / Global Insurance Client"
+role: "Senior AI / Backend Engineer"
+live_demo: "https://example.com/car-inspect-demo"
+github_repo: "https://github.com/sanayasfp/car-inspect-ai"
 ---
 
 ## 1. Executive Summary
