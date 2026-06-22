@@ -1,0 +1,80 @@
+---
+layout: base
+---
+<article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  {% include page-header.html %}
+
+  {%- if page.image -%}
+    <div class="post-hero-image">
+      <img src="{{ page.image | relative_url }}" alt="{{ page.title | escape }}">
+    </div>
+  {%- endif -%}
+
+  {%- if page.toc != false -%}
+    <details class="toc-container" open>
+      <summary class="toc-title">Table of Contents</summary>
+      <div class="toc-content">
+        {% include toc.html html=content h_min=2 h_max=3 sanitize=true class="toc-list" %}
+      </div>
+    </details>
+  {%- endif -%}
+
+  <div class="post-content e-content" itemprop="articleBody">
+    {{ content }}
+  </div>
+
+  {% if page.tags.size > 0 %}
+    <div class="post-tags-container">
+      {%- assign lang = page.lang | default: "fr" -%}
+      {%- assign tag_page = "/tags/" -%}
+      {%- if lang == "en" -%}{%- assign tag_page = "/en/tags/" -%}{%- endif -%}
+      {% for tag in page.tags %}
+        <a href="{{ tag_page | relative_url }}#{{ tag | slugify }}" class="tag-button">#{{ tag }}</a>
+      {% endfor %}
+    </div>
+  {% endif %}
+
+  {% include post-navigation.html %}
+
+  {% if jekyll.environment == 'production' -%}
+    {% if page.comments == false -%}
+    <div class="comments-disabled-message">
+      Comments have been disabled for this post.
+    </div>
+    {% else -%}
+      {%- include comments.html -%}
+    {% endif -%}
+  {% endif -%}
+
+  <a class="u-url" href="{{ page.url | relative_url }}" hidden></a>
+</article>
+
+<button id="go-up-button" title="Go to top">
+  <i class="bi bi-arrow-up"></i>
+</button>
+
+<script>
+  // TOC smooth scroll
+  document.querySelectorAll('.toc-content a').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      document.querySelector(this.getAttribute('href')).scrollIntoView({
+        behavior: 'smooth'
+      });
+    });
+  });
+
+  // Go Up Button
+  const goUpBtn = document.getElementById("go-up-button");
+  window.onscroll = function() {
+    if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+      goUpBtn.style.display = "flex";
+    } else {
+      goUpBtn.style.display = "none";
+    }
+  };
+  goUpBtn.onclick = function() {
+    window.scrollTo({top: 0, behavior: 'smooth'});
+  };
+</script>

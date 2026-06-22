@@ -2,7 +2,7 @@
   {%- assign lang = include.lang | default: "fr" -%}
   {%- assign posts = site.posts | where: "lang", lang -%}
   {%- for post in posts -%}
-    {%- if post.type != 'project' -%}
+    {%- if post.type == 'project' -%}
   <article class="post-card">
     <h3 class="post-card-title">
       <a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
@@ -21,7 +21,7 @@
       {{ post.content | strip_html | strip_newlines }}
     </div>
     <div class="post-card-meta">
-      {{ post.date | date: "%B %d, %Y" }} · {% include read-time.html content=post.content %} · {{ post.author | default: site.author.name | default: site.title }}
+      {{ post.date | date: "%B %d, %Y" }} · {% include read-time.html content=post.content %}
     </div>
   </article>
     {%- endif -%}

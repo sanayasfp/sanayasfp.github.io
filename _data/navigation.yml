@@ -4,6 +4,7 @@ fr:
     Ingénieur logiciel spécialisé en Backend et System Design.
     Actuellement en Master IA, je travaille sur l'intersection du génie logiciel et du Machine Learning.
   posts_heading: Articles
+  projects_heading: Projets
   menu:
     - title: Accueil
       url: /
@@ -25,6 +26,7 @@ en:
     Software Engineer specializing in Backend and System Design.
     Currently pursuing a Master's in AI, focusing on the intersection of software engineering and Machine Learning.
   posts_heading: Posts
+  projects_heading: Projects
   menu:
     - title: Home
       url: /en/
