@@ -11,10 +11,10 @@ fr:
       url: /about/
     - title: Travailler avec moi
       url: /work-with-me/
+    - title: Projets
+      url: /projets/
     - title: Articles
       url: /posts/
-    - title: Mots-clés
-      url: /tags/
     - title: Recherche
       url: /search/
     - title: Autre
@@ -32,10 +32,10 @@ en:
       url: /en/about/
     - title: Work with me
       url: /en/work-with-me/
+    - title: Projects
+      url: /en/projects/
     - title: Posts
       url: /en/posts/
-    - title: Tags
-      url: /en/tags/
     - title: Search
       url: /en/search/
     - title: Other
