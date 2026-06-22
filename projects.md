@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Projets
-permalink: /projets/
+permalink: /projects/
 lang: fr
 show_read_time: false
 ---
