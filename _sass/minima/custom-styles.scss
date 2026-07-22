@@ -332,6 +332,8 @@ html[data-theme="dark"] {
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
+  overflow-wrap: break-word;
+  word-break: break-word;
   margin-bottom: 1rem;
 }
 
@@ -782,6 +784,8 @@ html[data-theme="dark"] .search-input {
 
   .home-post-card {
     flex: 1;
+    min-width: 0;
+    width: 100%;
     margin-bottom: 0;
     padding: 1.2rem;
 
@@ -795,6 +799,8 @@ html[data-theme="dark"] .search-input {
       color: var(--minima-brand-color);
       margin-bottom: 0.5rem;
       font-family: monospace;
+      overflow-wrap: break-word;
+      word-break: break-word;
     }
   }
 }
@@ -802,6 +808,7 @@ html[data-theme="dark"] .search-input {
 @media (max-width: 768px) {
   .home-post-item {
     flex-direction: column;
+    align-items: stretch;
     gap: 10px;
 
     .post-date-tab {
