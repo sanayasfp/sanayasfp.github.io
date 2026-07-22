@@ -1,8 +1,8 @@
 fr:
   home_greeting: Salut, moi c'est Sana.
   home_description: >
-    Ingénieur logiciel spécialisé en Backend et System Design.
-    Actuellement en Master IA, je travaille sur l'intersection du génie logiciel et du Machine Learning.
+    Ingénieur logiciel spécialisé en Backend et System Design, avec un focus
+    sur l'intersection du génie logiciel et du Machine Learning.
   posts_heading: Articles
   projects_heading: Projets
   menu:
@@ -18,13 +18,11 @@ fr:
       url: /posts/
     - title: Recherche
       url: /search/
-    - title: Autre
-      url: /other/
 en:
   home_greeting: Hi! I'm Sana.
   home_description: >
-    Software Engineer specializing in Backend and System Design.
-    Currently pursuing a Master's in AI, focusing on the intersection of software engineering and Machine Learning.
+    Software Engineer specializing in Backend and System Design, with a focus
+    on the intersection of software engineering and Machine Learning.
   posts_heading: Posts
   projects_heading: Projects
   menu:
@@ -40,5 +38,3 @@ en:
       url: /en/posts/
     - title: Search
       url: /en/search/
-    - title: Other
-      url: /en/other/

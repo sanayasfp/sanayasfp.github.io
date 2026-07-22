@@ -11,6 +11,7 @@ lang: fr
 
 {% include work-with-me-orgs.html lang=page.lang %}
 
+{% if t.testimonials.size > 0 %}
 <div class="testimonials-section">
   <h3>{{ t.testimonial_title }}</h3>
   {% for testimonial in t.testimonials %}
@@ -27,3 +28,4 @@ lang: fr
   </div>
   {% endfor %}
 </div>
+{% endif %}
