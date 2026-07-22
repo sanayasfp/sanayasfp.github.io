@@ -6,7 +6,7 @@ lang: en
 ---
 
 <div class="search-container">
-  <input type="text" id="search-input" placeholder="Search posts..." autocomplete="off" class="search-input">
+  <input type="text" id="search-input" placeholder="Search posts..." autocomplete="off" autofocus class="search-input">
   <ul id="results-container" class="posts-list"></ul>
 </div>
 
