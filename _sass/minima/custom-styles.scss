@@ -131,7 +131,7 @@ label[for="nav-trigger"] {
 }
 
 // Mobile specific overrides
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 900px) {
   .site-nav {
     label[for="nav-trigger"] {
       display: flex !important;
