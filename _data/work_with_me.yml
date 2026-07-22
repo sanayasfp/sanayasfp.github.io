@@ -20,13 +20,26 @@ fr:
   org_intro: "Les organisations avec lesquelles j'ai collaboré incluent : "
   org_others: " et d'autres."
   testimonial_title: "Témoignages :"
+  testimonial_at: "chez"
   organizations: *organizations
-  testimonials: []
+  testimonials:
+    - &testimonial_narcisse_adingra
+      avatar: "/assets/avatars/narcisse-adingra.jpg"
+      author: "Narcisse Adingra"
+      author_url: "https://www.linkedin.com/in/narcisse-adingra-700907a1/"
+      role: "CTO & Co-fondateur"
+      company: "Djeli"
+      company_url: "https://sites.djeli.pro/"
+      quote: "J'ai eu l'occasion de collaborer avec lui sur plusieurs projets techniques. Il a rapidement identifié des problèmes de performance de notre infrastructure et conçu des optimisations qui ont amélioré la rapidité et l'efficacité de nos systèmes. Il a également développé une solution d'intelligence artificielle parfaitement adaptée à nos besoins. Son sens de l'analyse, sa rigueur et sa capacité à transformer des défis complexes en solutions concrètes en font un ingénieur avec lequel je recommande de travailler."
 
 en:
   availability: "I am available for consulting, Full Stack development, and AI engineering engagements."
   org_intro: "Organizations I’ve worked with include: "
   org_others: " and others."
   testimonial_title: "Testimonials:"
+  testimonial_at: "at"
   organizations: *organizations
-  testimonials: []
+  testimonials:
+    - <<: *testimonial_narcisse_adingra
+      role: "CTO & Co-founder"
+      quote: "I had the opportunity to collaborate with him on several technical projects. He quickly identified performance issues in our infrastructure and designed optimizations that improved the speed and efficiency of our systems. He also developed an AI solution perfectly suited to our needs. His analytical mindset, rigor, and ability to turn complex challenges into concrete solutions make him an engineer I recommend working with."
