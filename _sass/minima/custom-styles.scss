@@ -332,8 +332,6 @@ html[data-theme="dark"] {
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
-  overflow-wrap: break-word;
-  word-break: break-word;
   margin-bottom: 1rem;
 }
 
@@ -785,7 +783,7 @@ html[data-theme="dark"] .search-input {
   .home-post-card {
     flex: 1;
     min-width: 0;
-    width: 100%;
+    // width: 100%;
     margin-bottom: 0;
     padding: 1.2rem;
 
