@@ -23,6 +23,14 @@ fr:
   testimonial_at: "chez"
   organizations: *organizations
   testimonials:
+    - &testimonial_kone_fanhatcha
+      avatar: "/assets/avatars/kone-fanhatcha.png"
+      author: "Koné Fanhatcha"
+      author_url: "https://www.linkedin.com/in/konefanhatcha/"
+      role: "Directeur de l'ingénierie & CTO"
+      company: "Edane SA"
+      company_url: "https://edane.org/site/index.html"
+      quote: "Rigoureux, curieux et techniquement solide, Sana a grandement contribué à la réussite de nos projets de développement. Il possède une excellente méthodologie de travail et s'intègre parfaitement au sein d'une équipe agile. Son esprit d'analyse et sa communication fluide en font un maillon fort pour mener à bien des projets tech ambitieux. Un profil de confiance à recruter sans hésiter."
     - &testimonial_narcisse_adingra
       avatar: "/assets/avatars/narcisse-adingra.jpg"
       author: "Narcisse Adingra"
@@ -40,6 +48,9 @@ en:
   testimonial_at: "at"
   organizations: *organizations
   testimonials:
+    - <<: *testimonial_kone_fanhatcha
+      role: "Director of engineering & CTO"
+      quote: "Rigorous, curious, and technically solid, Sana greatly contributed to the success of our development projects. He has an excellent working methodology and integrates perfectly into an agile team. His analytical mind and fluid communication make him a strong asset in successfully completing ambitious tech projects. A trustworthy professional to hire without hesitation."
     - <<: *testimonial_narcisse_adingra
       role: "CTO & Co-founder"
       quote: "I had the opportunity to collaborate with Sana on several technical projects. He quickly identified performance issues in our infrastructure and designed optimizations that improved the speed and efficiency of our systems. He also developed an AI solution perfectly suited to our needs. His analytical mindset, rigor, and ability to turn complex challenges into concrete solutions make him an engineer I recommend working with."
