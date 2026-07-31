@@ -39,6 +39,14 @@ fr:
       company: "Djeli"
       company_url: "https://sites.djeli.pro/"
       quote: "J'ai eu l'occasion de collaborer avec Sana sur plusieurs projets techniques. Il a rapidement identifié des problèmes de performance de notre infrastructure et conçu des optimisations qui ont amélioré la rapidité et l'efficacité de nos systèmes. Il a également développé une solution d'intelligence artificielle parfaitement adaptée à nos besoins. Son sens de l'analyse, sa rigueur et sa capacité à transformer des défis complexes en solutions concrètes en font un ingénieur avec lequel je recommande de travailler."
+    - &testimonial_aka_laurent
+      author: "Aka Laurent"
+      avatar: "/assets/avatars/aka-laurent.jpg"
+      author_url: "https://www.linkedin.com/in/aka-laurent-278aa6256/"
+      role: "Ingénieur Full Stack / IA"
+      company: "Talenteum.com"
+      company_url: "https://talenteum.com/"
+      quote: "J'ai connu Sana il y a plus de 2 ans, alors que j'étais encore cofondateur / CTO de Freeci. Il a rejoint la plateforme et j'ai été content de constater qu'il existe des développeurs avec de bons soft skills, mais aussi une réelle fibre pour les bonnes pratiques. C'est un excellent ingénieur que je recommanderais les yeux fermés pour vos projets."
 
 en:
   availability: "I am available for consulting, Full Stack development, and AI engineering engagements."
@@ -54,3 +62,6 @@ en:
     - <<: *testimonial_narcisse_adingra
       role: "CTO & Co-founder"
       quote: "I had the opportunity to collaborate with Sana on several technical projects. He quickly identified performance issues in our infrastructure and designed optimizations that improved the speed and efficiency of our systems. He also developed an AI solution perfectly suited to our needs. His analytical mindset, rigor, and ability to turn complex challenges into concrete solutions make him an engineer I recommend working with."
+    - <<: *testimonial_aka_laurent
+      role: "Full Stack / AI Engineer"
+      quote: "I met Sana over 2 years ago, when I was still cofounder / CTO at Freeci. He joined the platform, and I was glad to see there are developers with strong soft skills who also have a genuine knack for best practices. He's an excellent engineer whom I'd recommend without hesitation for your projects."
