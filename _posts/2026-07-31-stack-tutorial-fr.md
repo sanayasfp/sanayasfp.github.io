@@ -1,35 +1,41 @@
 ---
 layout: post
-title: "Le guide complet de Stack : faire tourner plusieurs projets PHP, Node et Python sans Docker"
+title: "Le Guide Ultime pour un Environnement de Dev Fluide"
 date: 2026-07-31 09:00:00 +0000
 lang: fr
-tags: [Rust, Tooling, PHP, System Design, Backend, CLI]
-excerpt: "Une prise en main réelle de Stack : créer un projet PHP+MySQL, comprendre stack.toml, la confirmation à la première exécution, le HTTPS automatique, et les commandes du quotidien, de bout en bout."
+tags: [Rust, Outils, PHP, System Design, Backend, CLI]
+excerpt: "Fatigué que Docker fasse fondre votre ordinateur ? J'ai passé une semaine à perfectionner Stack pour que vous n'ayez pas à le faire. Voici le guide ultime, étape par étape, pour un environnement PHP + MySQL sans friction."
 ---
 
-J'ai écrit un [court article]({% link _posts/2026-07-28-stack-dev-env-fr.md %}) il y a quelques jours pour présenter **Stack** — pourquoi je l'ai créé, et l'idée centrale (des processus natifs plutôt que des conteneurs). Celui-ci est différent : c'est le tutoriel que j'aurais aimé trouver la première fois que j'ai essayé l'outil. Pas de discours, juste le vrai flux de travail, commande par commande, sur un vrai projet PHP + MySQL, avec chaque sortie affichée exactement comme Stack l'imprime aujourd'hui (v0.1.26).
+J'ai [écrit au sujet de Stack]({% link _posts/2026-07-28-stack-dev-env-en.md %}) il y a quelques jours — pour vous donner la version courte de pourquoi je l'ai créé et de toute la philosophie "sans Docker". Mais la théorie a ses limites. Si vous cherchez le guide ultime pour obtenir un environnement de développement parfaitement fluide, vous êtes au bon endroit.
 
-Si vous cherchez juste la référence technique, elle est sur [sanayavo.com/stack](https://sanayavo.com/stack/) — cet article en est la visite guidée.
+Pas de pitch commercial. Pas de blabla marketing. Juste la réalité brute et pratique de la mise en route d'un projet sans effort, avec chaque invite de commande et chaque sortie console un peu bizarre que vous rencontrerez en cours de route.
 
-## Ce que vous installez réellement
+Si vous voulez juste la documentation de référence brute, vous la trouverez sur [sanayavo.com/stack](https://sanayavo.com/stack/). Sinon, bienvenue dans la visite guidée d'un meilleur flux de travail (workflow).
 
-Stack est un unique binaire Rust. Il ne fait tourner aucun démon, n'a pas besoin de Docker Desktop, et ne touche pas à votre installation système de PHP/Node/Python. Il délègue la gestion des versions à deux outils que vous installeriez probablement de toute façon — [vfox](https://github.com/version-fox/vfox) pour PHP/Node, [uv](https://github.com/astral-sh/uv) pour Python — et route les domaines locaux via [Caddy](https://caddyserver.com). Le travail de Stack se résume à faire coller ces trois outils autour d'un seul fichier par projet : `stack.toml`.
+## Ce que vous obtenez vraiment
 
-Windows est la seule plateforme supportée pour l'instant (PowerShell et cmd). macOS et Linux sont prévus, pas encore livrés.
+Un environnement fluide signifie zéro superflu. Stack n'est qu'un seul binaire Rust. Il n'y a pas de démon qui monopolise la RAM dans votre barre des tâches, pas de Docker Desktop qui fait tourner les ventilateurs de votre ordinateur portable à fond, et absolument rien qui ne touche à votre installation PHP globale du système.
 
-## Installation et configuration initiale
+Au lieu de cela, il agit comme du ruban adhésif (duct tape) hautement intelligent. Il s'appuie sur [vfox](https://github.com/version-fox/vfox) pour gérer les versions de PHP/Node, [uv](https://github.com/astral-sh/uv) pour Python, et [Caddy](https://caddyserver.com) pour des domaines locaux instantanés. Stack lit un simple fichier `stack.toml` à la racine de votre projet et connecte automatiquement ces trois outils ensemble.
+
+*Note : Stack est uniquement disponible sur Windows pour le moment (PowerShell ou cmd). Le support de Mac et Linux est prévu sur la feuille de route.*
+
+## L'installation : Votre seul et unique mal de crâne
+
+Un flux de travail quotidien fluide nécessite un tout petit peu de configuration au départ. Exécutez ceci pour télécharger l'installateur :
 
 ```powershell
 irm https://github.com/sanayasfp/stack/releases/latest/download/stackenv-installer.ps1 | iex
 ```
 
-Puis, une seule fois, sur cette machine :
+Ensuite, exécutez cette commande *une seule fois* par machine :
 
 ```powershell
 stack setup
 ```
 
-Cette commande fait deux choses : elle installe un hook dans votre profil PowerShell (pour que la chaîne d'outils épinglée d'un projet s'active automatiquement à chaque `cd` dedans), et elle installe vfox, uv et Caddy aux versions avec lesquelles Stack est testé. Elle lance aussi `caddy trust` — j'y reviens dans un instant.
+Cela s'occupe du gros du travail en arrière-plan. Cela ajoute un hook (crochet) à votre profil PowerShell (pour que la bonne version de PHP ou Node s'active par magie lorsque vous faites un `cd` dans un répertoire), installe vfox, uv et Caddy dans des versions largement testées, et exécute `caddy trust`. Cette dernière étape est cruciale pour le HTTPS local — on y revient dans une minute.
 
 ```console
 $ stack setup
@@ -41,13 +47,13 @@ checking vfox/uv/caddy...
   caddy: local CA trusted (https://*.localhost works with no browser warning)
 ```
 
-Redémarrez votre terminal une fois pour que le hook prenne effet. Vous n'aurez plus besoin de relancer `stack setup`, sauf en changeant de machine.
+**Redémarrez votre terminal maintenant.** Si vous sautez cette étape, le hook PowerShell ne sera pas actif et vous vous demanderez pourquoi rien ne fonctionne. Vous n'aurez plus jamais à exécuter `stack setup` à moins d'acheter un nouvel ordinateur.
 
-## Votre premier projet
+## Démarrer un projet sans friction
 
-Construisons quelque chose de réel : une petite API PHP adossée à MySQL. Deux façons de démarrer, selon que le projet existe déjà ou non.
+Construisons quelque chose de concret pour vous montrer le fonctionnement : une API PHP légère adossée à MySQL.
 
-### Partir de zéro
+### À partir de zéro
 
 ```console
 $ stack new acme-api
@@ -60,11 +66,11 @@ created acme-api\stack.toml
 next: cd into it, add a [run] command when you know it, then `stack up`
 ```
 
-Le choix des langages et services se fait via une liste à cases à cocher — espace pour cocher, entrée pour confirmer. Rien n'est écrit avant votre confirmation : cocher la mauvaise case par erreur se corrige en la décochant, ce n'est pas une raison de tout recommencer.
+C'est une liste de contrôle interactive dans le terminal. Espace pour basculer (cocher/décocher), Entrée pour confirmer. Ça fait un peu bizarre la première fois, mais rien n'est validé tant que vous n'appuyez pas sur Entrée. Si vous sélectionnez accidentellement Node au lieu de PHP, appuyez à nouveau sur espace. Zéro stress, pas besoin de tout recommencer.
 
-### Partir d'un projet existant
+### Si vous avez déjà un projet
 
-Si `acme-api` a déjà un `composer.json` contenant `"php": "^8.3"`, inutile de tout retaper à la main :
+Si votre dossier `acme-api` possède déjà un fichier `composer.json` spécifiant `"php": "^8.3"`, Stack est assez intelligent pour vous éviter de taper manuellement :
 
 ```console
 $ stack init
@@ -73,9 +79,11 @@ detected from existing project files:
 domain: acme-api.localhost
 ```
 
-`stack init` lit `composer.json`, `package.json` ou `pyproject.toml` et pré-remplit les contraintes de version qu'il y trouve. Le même assistant s'enchaîne ensuite.
+`stack init` analyse automatiquement `composer.json`, `package.json` ou `pyproject.toml` et pré-remplit l'assistant pour vous.
 
-### Lire le manifeste généré
+### L'artefact magique
+
+Stack génère un manifeste très lisible :
 
 ```toml
 [project]
@@ -89,20 +97,20 @@ php = "8.3.1"
 version = "8.0.35"
 ```
 
-Ce fichier est fait pour être commité. C'est tout l'artefact nécessaire pour "partager un projet" — l'équivalent sans conteneur d'un Dockerfile. Quiconque clone le dépôt et lance `stack up` obtient exactement la même version de PHP et exactement la même version de MySQL, sans installer ni l'un ni l'autre à la main.
+Commitez ce fichier `stack.toml` dans votre dépôt (repo). C'est votre artefact ultime du type "ça marche sur ma machine" — l'équivalent léger et sans conteneur d'un Dockerfile. Lorsqu'un collègue clone le dépôt et tape `stack up`, il obtient instantanément les mêmes versions exactes de PHP et MySQL, sans avoir à installer quoi que ce soit à la main.
 
-## Lui dire comment se lancer
+## Lui apprendre comment s'exécuter
 
-`stack.toml` ne connaît pas encore votre commande de serveur de dev. Ouvrez-le et ajoutez une section `[run]` :
+Votre `stack.toml` doit savoir comment démarrer votre serveur de développement. Ouvrez le fichier et ajoutez un bloc `[run]` :
 
 ```toml
 [run]
 command = "php -S 127.0.0.1:{port} -t public"
 ```
 
-`{port}` est remplacé par un vrai port alloué au démarrage. Si vous omettez `[run]` entièrement et que `[language.php]` est déclaré, Stack bascule par défaut sur son propre moteur FastCGI (`php-cgi.exe` avec de vrais processus de travail concurrents, exposé via une route FastCGI de Caddy) plutôt que d'exiger une commande explicite — le même schéma de "valeur par défaut sensée" que les services ont déjà. On y revient plus bas.
+L'espace réservé `{port}` est dynamiquement remplacé par un port disponible au moment de l'exécution. (Note : Si vous déclarez `[language.php]` mais ignorez la section `[run]`, Stack se rabat sur sa propre configuration FastCGI intégrée utilisant `php-cgi.exe` et Caddy, ce qui est incroyablement solide. Mais pour ce guide, nous allons rester explicites.)
 
-## Le démarrer
+## `stack up` et regardez la magie opérer
 
 ```console
 $ cd acme-api
@@ -127,25 +135,27 @@ Trust and run these commands? [y/N] y
   routed: http://acme-api.localhost -> 127.0.0.1:52140
 ```
 
-Deux détails méritent qu'on s'y arrête, parce qu'ils ne sautent pas aux yeux sur une simple capture d'écran.
+Il y a deux choses majeures qui se passent ici et qui contribuent à une expérience sans accroc :
 
-### La demande de confirmation
+### 1. L'invite de confiance de sécurité
 
-`[run].command` et chaque `[service.*].command` sont des invocations de programme littérales — Stack les exécute exactement telles quelles, de la même façon que `npm install` exécute ce qu'il trouve dans les scripts de `package.json`. La première fois que les commandes d'un projet sont vues, ou la première fois qu'elles changent (par exemple après un `git pull` qui en apporte une différente), Stack les affiche et demande confirmation avant d'exécuter quoi que ce soit. Refusez, et rien ne démarre. Approuvez une fois, et c'est mémorisé dans `~/.stack/trust.json` — chaque `stack up` suivant sur ce même jeu de commandes est silencieux. Passez `--yes` pour sauter la confirmation en CI ou dans un script.
+Parce que `[run].command` est une invocation littérale du shell, Stack l'exécute exactement tel qu'il est écrit. La première fois que Stack voit une commande nouvelle ou modifiée (comme après un `git pull`), il vous demande de la confirmer. Dites *oui*, et il mémorise votre choix dans `~/.stack/trust.json`. Chaque `stack up` suivant sera heureusement silencieux. Besoin de contourner cela pour la CI ? Passez simplement le flag `--yes`.
 
-### C'est déjà en HTTPS
+### 2. Le HTTPS fonctionne immédiatement
 
-Cette ligne `routed:` n'affiche que `http://`, mais `https://acme-api.localhost` fonctionne déjà aussi, sans aucun avertissement du navigateur. L'étape `caddy trust` de `stack setup` a installé l'autorité de certification locale de Caddy dans le magasin de confiance de votre système — mécaniquement la même chose que fait [mkcert](https://github.com/FiloSottile/mkcert). Rien ne force la redirection ; les deux protocoles sont actifs sur la même route.
+La console affiche `http://`, mais `https://acme-api.localhost` fonctionne instantanément. Aucun avertissement rouge du navigateur. Vous vous souvenez de cette commande `caddy trust` lors de la phase de configuration ? Elle installe une autorité de certification locale (similaire à `mkcert`), ce qui signifie que votre environnement local reflète fidèlement le SSL de production dès le premier jour.
 
-## Ce que "sans conteneur" apporte concrètement ici
+## Ce que "sans conteneurs" signifie vraiment en pratique
 
-Ouvrez un second terminal, faites un `cd` vers un *autre* projet qui déclare aussi `mysql = "8.0.35"`, et lancez `stack up` là aussi :
+Ouvrez un deuxième terminal, faites un `cd` dans un projet totalement *différent* qui nécessite également MySQL 8.0.35, et exécutez `stack up` :
 
 ```console
   service.mysql: already running, shared with other projects (pid 41232, port 3306)
 ```
 
-Un seul processus MySQL, deux projets, isolés par schéma plutôt que par un conteneur séparé chacun. Si vous faites `cd acme-api` dans un troisième terminal, là, maintenant, et que vous lancez juste `php -v` à la main — sans `stack up`, sans commande du manifeste — vous obtenez 8.3.1, parce que l'activation se fait de manière ambiante à chaque invite, pas seulement à l'intérieur de `stack up` :
+C'est toute la beauté de la chose. Un seul processus MySQL sert deux projets, isolés par schéma plutôt que de brûler votre processeur et votre RAM avec des conteneurs redondants.
+
+Mais c'est ici que le facteur "fluide" brille vraiment. Ouvrez un troisième terminal, faites un `cd` dans `acme-api`, et exécutez simplement `php -v`. Pas de `stack up`, pas de commandes supplémentaires :
 
 ```console
 $ cd acme-api
@@ -156,15 +166,17 @@ $ php -v
 'php' is not recognized as an internal or external command
 ```
 
-C'est exactement le point de Stack : `composer install`, un lanceur de tests, l'interpréteur PHP configuré dans votre IDE — tout ce qui exécute `php` depuis ce dossier obtient la version épinglée, sans configuration supplémentaire, et ça disparaît dès que vous en sortez.
+Le changement de version se fait de manière *ambiante* à chaque invite de commande grâce à ce hook PowerShell. Votre IDE, `composer install` et vos exécuteurs de tests obtiennent tous automatiquement la bonne version épinglée à la seconde où ils entrent dans le dossier. Quittez le répertoire, et elle disparaît. Pas de `source venv/bin/activate`, pas de `nvm use`, et pas de pollution de votre système global.
 
-## Les nouvelles installations PHP sont préconfigurées
+## Des installations PHP toutes neuves qui ne craignent pas
 
-La première fois que Stack télécharge une version de PHP via vfox, il modifie une fois le `php.ini` de cette installation : un ensemble choisi d'extensions dont toute application non triviale a besoin mais que les builds officiels livrent désactivées (`pdo_mysql`, `pdo_pgsql`, `pdo_sqlite`, `sockets`, `sodium`, et quelques autres), OPcache activé, et des valeurs par défaut plus adaptées au développement (`date.timezone`, un `memory_limit` plus élevé, des limites d'upload plus larges). Autrement, vous tombez dessus une par une — un driver PDO manquant ici, un avertissement de fuseau horaire non défini là — exactement le genre de chose qui mange une après-midi sur une machine neuve.
+Habituellement, une nouvelle installation PHP signifie passer une après-midi à traquer les erreurs "PDO driver not found" ou "timezone not set". Stack élimine complètement cela.
 
-## Vérifier un manifeste avant qu'il n'échoue à mi-chemin
+La première fois qu'il télécharge une version de PHP via vfox, il patche automatiquement `php.ini`. Il active OPcache, augmente les limites de mémoire et de téléchargement (upload), définit un fuseau horaire, et active les extensions dont vous avez réellement besoin par défaut (`pdo_mysql`, `pdo_pgsql`, `pdo_sqlite`, `sockets`, `sodium`, etc.). Cela se fait une fois, automatiquement, et vous n'avez plus jamais à y penser.
 
-Avant de transmettre un projet à quelqu'un d'autre, ou après avoir récupéré des changements qui touchent `stack.toml` :
+## `stack doctor` — L'ultime vérification avant le vol
+
+Avant de transmettre un projet à un collègue ou de commencer à déboguer un problème étrange, exécutez ceci :
 
 ```console
 $ stack doctor --project
@@ -173,39 +185,44 @@ checking C:\Users\you\acme-api\stack.toml...
   service.mysql: OK (managed)
 ```
 
-Cette commande valide les ports, les chemins des services, et tout `{PLACEHOLDER}` dans `[run].command` face à votre environnement réel — en chargeant d'abord le `.env` du projet, comme le fait `stack up` — sans démarrer le moindre processus. Si quelque chose cloche, vous obtenez la liste complète d'un coup, au lieu de la découvrir erreur par erreur, en plein milieu d'un `stack up`.
+Cette commande valide vos ports, chemins et valeurs `{PLACEHOLDER}` par rapport à votre environnement (en chargeant d'abord `.env`) sans démarrer un seul service. Si quelque chose est cassé, vous obtenez une liste claire dès le départ au lieu de découvrir des erreurs cryptiques au beau milieu du démarrage.
 
-## Des commandes qui marchent depuis n'importe où
+## Pilotez votre configuration de n'importe où
 
-Pas besoin d'être dans `acme-api` pour rien de tout ça, une fois que Stack l'a vu au moins une fois :
-
-```console
-$ stack describe acme-api
-$ stack restart acme-api
-$ stack down acme-api
-```
-
-`stack describe` affiche tout ce que Stack sait d'un projet — chemins des binaires résolus, l'emplacement réel de `php.ini` (franchement difficile à retrouver à la main sous le cache versionné et haché de vfox), le fichier de log, le domaine routé — que le projet tourne ou non. `stack restart` l'arrête et le relance en une seule étape. Les deux résolvent le nom via un petit registre local de chaque projet que Stack a déjà vu, pas depuis votre dossier courant.
-
-## Terminer la journée
+Une fois que Stack connaît un projet, vous n'avez même pas besoin d'être dans son dossier pour le gérer :
 
 ```console
-$ stack down --all
+stack describe acme-api
+stack restart acme-api
+stack down acme-api
 ```
 
-Arrête tous les projets et tous les services partagés d'un coup — Caddy compris. Un vrai 0 % de CPU, pas juste "le projet que je regardais à l'instant".
+`stack describe` affiche tout — les chemins binaires résolus, l'emplacement exact de votre `php.ini` haché, les logs, et les domaines routés. Stack conserve un registre local de vos projets, ce qui rend la gestion globale sans effort.
 
-## Un mot rapide sur les domaines personnalisés
+## Tout fermer proprement
 
-`acme-api.localhost` fonctionne sans aucune configuration parce que `.localhost` est réservé par la RFC 6761 — les navigateurs le résolvent vers la boucle locale sans fichier hosts. Si vous préférez `.test` (venant de Laragon ou Herd, c'est le suffixe le plus familier), ça demande une étape unique — [Custom Domains](https://sanayavo.com/stack/custom-domains.html) détaille la configuration exacte pour Acrylic DNS Proxy sur Windows.
+Quand la journée est terminée :
 
-## Pour aller plus loin
+```console
+stack down --all
+```
 
-Voilà la boucle complète : créer, lancer, approuver une fois, obtenir un domaine routé en HTTPS, partager le manifeste, tout arrêter proprement. Tout le reste — la référence complète des champs de `stack.toml`, chaque option de la CLI, `[[clone]]` pour démarrer un projet à partir d'un simple manifeste — est dans la documentation :
+Tout s'arrête. Chaque projet, chaque service partagé, et Caddy. Vous obtenez une utilisation CPU vraiment à zéro, et non un conteneur fantôme persistant que vous avez oublié de tuer.
 
-- [Why stack?](https://sanayavo.com/stack/why.html) — l'argumentaire complet face à Docker/XAMPP pour ce problème précis
-- [Manifest Reference](https://sanayavo.com/stack/manifest.html)
-- [CLI Reference](https://sanayavo.com/stack/cli.html)
+## Une petite note sur les domaines personnalisés
+
+L'utilisation de `.localhost` garantit une expérience fluide car les navigateurs le résolvent automatiquement vers l'adresse de bouclage (RFC 6761) sans que vous ayez besoin de bidouiller votre fichier hosts. Cependant, si vous migrez depuis Laragon ou Herd et que vous avez absolument besoin de domaines `.test`, il y a une configuration unique à faire en utilisant [Acrylic DNS Proxy](https://sanayavo.com/stack/custom-domains.html).
+
+## Votre Nouveau Flux de Travail
+
+Générez (Scaffold), exécutez, faites confiance une fois, profitez du HTTPS automatique, commitez votre manifeste, et détruisez tout proprement quand vous avez terminé.
+
+J'utilise ce flux de travail exact pour du vrai travail client chaque jour. Ce n'est pas un scénario idéal théorique ; c'est un plan d'action éprouvé pour un environnement de développement ultime et fluide.
+
+Pour la référence complète de `stack.toml`, les options de ligne de commande (CLI), et les fonctionnalités avancées (comme l'utilisation de `[[clone]]` pour démarrer à partir d'un simple manifeste), consultez la documentation officielle :
+
+- [Pourquoi j'ai créé cela](https://sanayavo.com/stack/why.html) — la longue diatribe contre Docker/XAMPP pour le dev local
+- [Pour commencer](https://sanayavo.com/stack/getting-started.html)
+- [Référence du Manifeste](https://sanayavo.com/stack/manifest.html)
+- [Référence CLI](https://sanayavo.com/stack/cli.html)
 - Code : [github.com/sanayasfp/stack](https://github.com/sanayasfp/stack)
-
-Je continue à utiliser Stack quotidiennement sur du travail client réel, donc ce qui est couvert ici, ce sont les parties sur lesquelles je m'appuie vraiment tous les jours — pas une démo choisie pour l'occasion.
