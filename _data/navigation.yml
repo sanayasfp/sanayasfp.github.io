@@ -11,6 +11,7 @@ fr:
   testimonials_cta: "Lire tous les témoignages →"
   work_with_me_url: /work-with-me/
   cv_label: "Télécharger mon CV (PDF)"
+  cv_nav_label: "CV"
   cv_url: /assets/cv/sana-yavo-cv.pdf
   menu:
     - title: Accueil
@@ -38,6 +39,7 @@ en:
   testimonials_cta: "Read all testimonials →"
   work_with_me_url: /en/work-with-me/
   cv_label: "Download CV (PDF)"
+  cv_nav_label: "CV"
   cv_url: /assets/cv/sana-yavo-cv.pdf
   menu:
     - title: Home
