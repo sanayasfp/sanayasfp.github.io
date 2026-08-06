@@ -54,7 +54,6 @@ $brand-highlight: #f5f841;
 // Common style for header interactive items
 .nav-link,
 .lang-link,
-.cv-link,
 #theme-toggle,
 label[for="nav-trigger"] {
   margin: 0 !important;
@@ -88,15 +87,14 @@ label[for="nav-trigger"] {
 
 // Borders only for header controls
 .lang-link,
-.cv-link,
 #theme-toggle,
 label[for="nav-trigger"] {
   border: 1px solid rgba(128, 128, 128, 0.8) !important;
 }
 
-.cv-link {
-  font-weight: 600;
-  white-space: nowrap;
+.nav-items .cv-link {
+  font-weight: 700;
+  color: var(--minima-brand-color) !important;
 }
 
 .nav-link {

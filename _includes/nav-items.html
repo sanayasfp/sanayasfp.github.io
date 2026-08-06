@@ -2,4 +2,7 @@
   {%- for item in include.navigation -%}
   <a class="nav-item nav-link{% if page.url == item.url %} active{% endif %}" href="{{ item.url | relative_url }}">{{ item.title | escape }}</a>
   {%- endfor %}
+  {%- if include.cv_url -%}
+  <a class="nav-item nav-link cv-link" href="{{ include.cv_url | relative_url }}" target="_blank" rel="noopener">{{ include.cv_label }}</a>
+  {%- endif %}
 </div>
