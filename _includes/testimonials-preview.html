@@ -1,0 +1,27 @@
+{% assign lang = include.lang | default: "fr" %}
+{% assign strings = site.data.navigation[lang] %}
+{% assign t = site.data.work_with_me[lang] %}
+{% assign preview_testimonials = t.testimonials | slice: 0, 2 %}
+
+{% if preview_testimonials.size > 0 %}
+<h2 class="section-heading">{{ strings.testimonials_heading }}</h2>
+<div class="testimonials-preview">
+  {% for testimonial in preview_testimonials %}
+  <div class="testimonial-preview-item">
+    <blockquote class="testimonial-preview-quote">
+      {{ testimonial.highlight | default: testimonial.quote }}
+    </blockquote>
+    <div class="testimonial-preview-author">
+      {% if testimonial.avatar %}
+      <img src="{{ testimonial.avatar | relative_url }}" alt="{{ testimonial.author }}" class="testimonial-avatar">
+      {% endif %}
+      <div class="author-info">
+        <span class="author-name">{{ testimonial.author }}</span>{% if testimonial.role %}, {{ testimonial.role }}{% endif %}
+        {% if testimonial.company %} {{ t.testimonial_at }} {{ testimonial.company }}{% endif %}
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+<a href="{{ strings.work_with_me_url | relative_url }}" class="testimonials-preview-cta">{{ strings.testimonials_cta }}</a>
+{% endif %}

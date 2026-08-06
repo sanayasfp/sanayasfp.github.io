@@ -12,6 +12,8 @@
       {% include nav-items.html navigation = nav_data.menu %}
       
       <div class="header-controls">
+        <a href="{{ nav_data.cv_url | relative_url }}" class="cv-link" target="_blank" rel="noopener">{{ nav_data.cv_label }}</a>
+
         {% include theme-toggle.html %}
 
         <div class="lang-switcher">

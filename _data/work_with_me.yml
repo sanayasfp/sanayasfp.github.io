@@ -16,9 +16,25 @@ shared:
       logo: "https://www.orange.ci/particuliers/resources/img/master-logo.svg"
 
 fr:
-  availability: "Je suis disponible pour des missions de consulting, de développement Full Stack et d'ingénierie IA."
+  availability: "Je collabore avec des organisations et des équipes d'ingénierie sur l'infrastructure IA, la Data Governance, le MLOps et les architectures backend haute performance."
   org_intro: "Les organisations avec lesquelles j'ai collaboré incluent : "
   org_others: " et d'autres."
+  pillars_title: "Domaines d'expertise"
+  pillars:
+    - title: "Infrastructure IA & Data Governance"
+      items:
+        - "Conception d'architectures IA & LLM auto-hébergées."
+        - "Anonymisation des données personnelles, coffres-forts de données et pipelines RAG (pgvector, PostGIS)."
+        - "MLOps et déploiement de modèles de Computer Vision (YOLO, PyTorch)."
+    - title: "Backend haute performance & System Design"
+      items:
+        - "Conception de systèmes distribués scalables et d'APIs à fort débit (Rust, Python, TypeScript)."
+        - "Architecture de bases de données, optimisation de requêtes et intégration géospatiale (PostgreSQL)."
+        - "Outillage interne sur mesure (CLI, environnements de développement sans conteneur)."
+    - title: "Mentorat technique & formation d'équipes"
+      items:
+        - "Formation d'équipes d'ingénierie à l'intégration moderne de l'IA, à Rust et au System Design."
+        - "Revues de code, audits d'architecture et montée en compétence des développeurs juniors/intermédiaires."
   testimonial_title: "Témoignages :"
   testimonial_at: "chez"
   organizations: *organizations
@@ -31,6 +47,7 @@ fr:
       company: "Edane SA"
       company_url: "https://edane.org/site/index.html"
       quote: "Rigoureux, curieux et techniquement solide, Sana a grandement contribué à la réussite de nos projets de développement. Il possède une excellente méthodologie de travail et s'intègre parfaitement au sein d'une équipe agile. Son esprit d'analyse et sa communication fluide en font un maillon fort pour mener à bien des projets tech ambitieux. Un profil de confiance à recruter sans hésiter."
+      highlight: "Rigoureux, curieux et techniquement solide... un maillon fort pour mener à bien des projets tech ambitieux."
     - &testimonial_narcisse_adingra
       avatar: "/assets/avatars/narcisse-adingra.jpg"
       author: "Narcisse Adingra"
@@ -39,6 +56,7 @@ fr:
       company: "Djeli"
       company_url: "https://sites.djeli.pro/"
       quote: "J'ai eu l'occasion de collaborer avec Sana sur plusieurs projets techniques. Il a rapidement identifié des problèmes de performance de notre infrastructure et conçu des optimisations qui ont amélioré la rapidité et l'efficacité de nos systèmes. Il a également développé une solution d'intelligence artificielle parfaitement adaptée à nos besoins. Son sens de l'analyse, sa rigueur et sa capacité à transformer des défis complexes en solutions concrètes en font un ingénieur avec lequel je recommande de travailler."
+      highlight: "Il a rapidement identifié des problèmes de performance de notre infrastructure et conçu des optimisations qui ont amélioré la rapidité et l'efficacité de nos systèmes."
     - &testimonial_aka_laurent
       author: "Aka Laurent"
       avatar: "/assets/avatars/aka-laurent.jpg"
@@ -49,9 +67,25 @@ fr:
       quote: "J'ai connu Sana il y a plus de 2 ans, alors que j'étais encore cofondateur / CTO de Freeci. Il a rejoint la plateforme et j'ai été content de constater qu'il existe des développeurs avec de bons soft skills, mais aussi une réelle fibre pour les bonnes pratiques. C'est un excellent ingénieur que je recommanderais les yeux fermés pour vos projets."
 
 en:
-  availability: "I am available for consulting, Full Stack development, and AI engineering engagements."
+  availability: "I partner with organizations and engineering teams on AI Infrastructure, Data Governance, MLOps, and High-Performance Backend Architectures."
   org_intro: "Organizations I’ve worked with include: "
   org_others: " and others."
+  pillars_title: "Areas of expertise"
+  pillars:
+    - title: "AI Infrastructure & Data Governance"
+      items:
+        - "Designing self-hosted AI & LLM architectures."
+        - "Implementing PII anonymization, data privacy vaults, and RAG pipelines (pgvector, PostGIS)."
+        - "MLOps and Computer Vision model deployments (YOLO, PyTorch)."
+    - title: "High-Performance Backend & System Design"
+      items:
+        - "Building scalable distributed systems and high-throughput APIs (Rust, Python, TypeScript)."
+        - "Database architecture, query optimization, and geodata integration (PostgreSQL)."
+        - "Custom internal tooling (CLI tools, containerless development environments)."
+    - title: "Technical Mentorship & Team Training"
+      items:
+        - "Training engineering teams on modern AI integration, Rust, and System Design."
+        - "Code reviews, architectural audits, and levelling up junior/mid-level developers."
   testimonial_title: "Testimonials:"
   testimonial_at: "at"
   organizations: *organizations
@@ -59,9 +93,11 @@ en:
     - <<: *testimonial_kone_fanhatcha
       role: "Director of engineering & CTO"
       quote: "Rigorous, curious, and technically solid, Sana greatly contributed to the success of our development projects. He has an excellent working methodology and integrates perfectly into an agile team. His analytical mind and fluid communication make him a strong asset in successfully completing ambitious tech projects. A trustworthy professional to hire without hesitation."
+      highlight: "Rigorous, curious, and technically solid... a strong asset in successfully completing ambitious tech projects."
     - <<: *testimonial_narcisse_adingra
       role: "CTO & Co-founder"
       quote: "I had the opportunity to collaborate with Sana on several technical projects. He quickly identified performance issues in our infrastructure and designed optimizations that improved the speed and efficiency of our systems. He also developed an AI solution perfectly suited to our needs. His analytical mindset, rigor, and ability to turn complex challenges into concrete solutions make him an engineer I recommend working with."
+      highlight: "He quickly identified performance issues in our infrastructure and designed optimizations that improved the speed and efficiency of our systems."
     - <<: *testimonial_aka_laurent
       role: "Full Stack / AI Engineer"
       quote: "I met Sana over 2 years ago, when I was still cofounder / CTO at Freeci. He joined the platform, and I was glad to see there are developers with strong soft skills who also have a genuine knack for best practices. He's an excellent engineer whom I'd recommend without hesitation for your projects."

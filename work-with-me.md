@@ -9,6 +9,8 @@ lang: fr
 
 <p class="availability-status">{{ t.availability }}</p>
 
+{% include work-with-me-pillars.html lang=page.lang %}
+
 {% include work-with-me-orgs.html lang=page.lang %}
 
 {% if t.testimonials.size > 0 %}

@@ -54,6 +54,7 @@ $brand-highlight: #f5f841;
 // Common style for header interactive items
 .nav-link,
 .lang-link,
+.cv-link,
 #theme-toggle,
 label[for="nav-trigger"] {
   margin: 0 !important;
@@ -87,9 +88,15 @@ label[for="nav-trigger"] {
 
 // Borders only for header controls
 .lang-link,
+.cv-link,
 #theme-toggle,
 label[for="nav-trigger"] {
   border: 1px solid rgba(128, 128, 128, 0.8) !important;
+}
+
+.cv-link {
+  font-weight: 600;
+  white-space: nowrap;
 }
 
 .nav-link {
@@ -726,6 +733,121 @@ hr {
     &::before {
       content: none;
     }
+  }
+}
+
+// Work With Me - Pillars
+.pillars-section {
+  margin-bottom: 3rem;
+
+  h3 {
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+    color: var(--minima-brand-color);
+  }
+}
+
+.pillars-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+}
+
+.pillar-item {
+  padding: 1.5rem;
+  border: 1px solid rgba(128, 128, 128, 0.8);
+  border-top: 4px solid $brand-highlight;
+
+  .pillar-title {
+    font-size: 1rem;
+    font-weight: 700;
+    margin: 0 0 1rem;
+  }
+
+  .pillar-items {
+    margin: 0;
+    padding-left: 1.1rem;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--minima-text-color);
+
+    li {
+      margin-bottom: 0.5rem;
+    }
+  }
+}
+
+// Homepage testimonials preview
+.testimonials-preview {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  margin-bottom: 1.5rem;
+}
+
+.testimonial-preview-item {
+  padding: 1.5rem;
+  background: var(--minima-background-color);
+  border: 1px solid rgba(128, 128, 128, 0.8);
+  border-left: 4px solid $brand-highlight;
+}
+
+.testimonial-preview-quote {
+  margin: 0 0 1rem;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--minima-text-color);
+}
+
+.testimonial-preview-author {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.85rem;
+  opacity: 0.85;
+
+  .testimonial-avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 1px solid rgba(128, 128, 128, 0.8);
+  }
+
+  .author-name {
+    font-weight: bold;
+  }
+}
+
+.testimonials-preview-cta {
+  display: inline-block;
+  margin-bottom: 2.5rem;
+  font-weight: 600;
+  color: var(--minima-link-base-color);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+
+  &:hover {
+    color: var(--minima-link-hover-color);
+  }
+}
+
+// CV download button on homepage hero
+.cv-button {
+  display: inline-block;
+  margin-bottom: 20px;
+  padding: 10px 22px;
+  background: $brand-highlight;
+  border: 1px solid $brand-highlight;
+  color: #181818 !important;
+  font-weight: 700;
+  font-size: 14px;
+  text-decoration: none !important;
+  transition: all 0.2s ease;
+
+  &:hover {
+    background: transparent;
+    color: var(--minima-text-color) !important;
   }
 }
 

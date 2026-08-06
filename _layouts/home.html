@@ -14,11 +14,15 @@ layout: base
       {{ strings.home_description | markdownify }}
     </div>
 
+    <a href="{{ strings.cv_url | relative_url }}" class="cv-button" target="_blank" rel="noopener">{{ strings.cv_label }}</a>
+
     <div class="social-links-home">
       {%- include social.html -%}
     </div>
 
   </header>
+
+  {%- include testimonials-preview.html lang=lang -%}
 
   {%- assign all_posts = site.posts | where: "lang", lang -%}
   {%- assign project_posts = all_posts | where_exp: "p", "p.type == 'project'" -%}

@@ -9,15 +9,15 @@ lang: en
 
 Hi! I'm Sana.
 
-I am a Software Engineer by trade, specializing in Backend Engineering and System Design, with a focus on the industrial integration of Machine Learning models.
+I am a Senior Software & AI Engineer specializing in System Design, Data Governance, and MLOps. I build robust backend infrastructures and deploy sovereign AI systems, from API design and hybrid search engines (text, vector, geolocation) to production Computer Vision models.
 
-Most of my recent work sits at the intersection of robust backend development and applied AI - building APIs and hybrid search engines (text, vector, geolocation), and experimenting with Computer Vision.
+Most of my recent work sits at the intersection of traditional software engineering and applied AI, with a strong focus on reliability, performance, and data ownership at every stage of the pipeline.
 
-Occasionally, I find time to:
+Concretely, I spend my time:
 
-* Optimize local inference for open-source Large Language Models under tight hardware constraints.
-* Build Computer Vision detection systems, such as [car-inspect-ai](https://github.com/sanayasfp/car-inspect-ai), which identifies individual vehicle parts from a photo - a first building block toward automated inspection.
-* Build AI-driven conversational assistants combining semantic search, full-text search, and geolocation, like [laplace-nearby](https://github.com/sanayasfp/laplace-nearby), a WhatsApp assistant for finding nearby businesses.
-* Study modern computer system architectures, MLOps lifecycles, and high-performance computing (HPC) software optimization.
+* Designing and deploying self-hosted AI architectures: RAG, vector search, and local inference optimization for open-source LLMs under tight hardware constraints.
+* Building Computer Vision detection systems, such as [car-inspect-ai](https://github.com/sanayasfp/car-inspect-ai), which identifies individual vehicle parts from a photo - a first building block toward automated inspection (YOLO11n, PyTorch).
+* Building AI-driven conversational assistants combining semantic search, full-text search, and geolocation, like [laplace-nearby](https://github.com/sanayasfp/laplace-nearby), a WhatsApp assistant for finding nearby businesses (PostgreSQL, pgvector, PostGIS).
+* Studying modern high-performance computing (HPC) architectures and software optimization.
 
-In my free time, I love recreating dishes I see on social media. It’s my favorite way to unplug from screens, fuel my creativity, and share great food. I also enjoy exploring new tech stacks and reading systems engineering blogs, my favorite one being [ByteByteGo](https://substack.com/@bytebytego399569).
+Away from the screen, I love recreating dishes I see on social media and exploring new tech stacks - I regularly read [ByteByteGo](https://substack.com/@bytebytego399569) to keep up with System Design.

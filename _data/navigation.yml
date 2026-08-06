@@ -1,10 +1,17 @@
 fr:
   home_greeting: Salut, moi c'est Sana.
   home_description: >
-    Ingénieur logiciel spécialisé en Backend et System Design, avec un focus
-    sur l'intersection du génie logiciel et du Machine Learning.
+    Je suis Ingénieur Logiciel & IA Senior, spécialisé en System Design, Data
+    Governance et MLOps. Je conçois des infrastructures backend robustes
+    (Rust, Python, TypeScript) et déploie des systèmes d'IA souverains et
+    auto-hébergés (RAG, recherche vectorielle, Computer Vision).
   posts_heading: Articles
   projects_heading: Projets
+  testimonials_heading: Ce qu'ils en disent
+  testimonials_cta: "Lire tous les témoignages →"
+  work_with_me_url: /work-with-me/
+  cv_label: "Télécharger mon CV (PDF)"
+  cv_url: /assets/cv/sana-yavo-cv.pdf
   menu:
     - title: Accueil
       url: /
@@ -21,10 +28,17 @@ fr:
 en:
   home_greeting: Hi! I'm Sana.
   home_description: >
-    Software Engineer specializing in Backend and System Design, with a focus
-    on the intersection of software engineering and Machine Learning.
+    I am a Senior Software & AI Engineer specializing in System Design, Data
+    Governance, and MLOps. I build robust backend infrastructures (Rust,
+    Python, TypeScript) and deploy sovereign, self-hosted AI systems (RAG,
+    vector search, Computer Vision).
   posts_heading: Posts
   projects_heading: Projects
+  testimonials_heading: What people say
+  testimonials_cta: "Read all testimonials →"
+  work_with_me_url: /en/work-with-me/
+  cv_label: "Download CV (PDF)"
+  cv_url: /assets/cv/sana-yavo-cv.pdf
   menu:
     - title: Home
       url: /en/

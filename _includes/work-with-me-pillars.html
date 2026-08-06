@@ -1,0 +1,19 @@
+{% assign t = site.data.work_with_me[include.lang] %}
+
+{% if t.pillars.size > 0 %}
+<div class="pillars-section">
+  <h3>{{ t.pillars_title }}</h3>
+  <div class="pillars-grid">
+    {% for pillar in t.pillars %}
+    <div class="pillar-item">
+      <h4 class="pillar-title">{{ pillar.title }}</h4>
+      <ul class="pillar-items">
+        {% for item in pillar.items %}
+        <li>{{ item }}</li>
+        {% endfor %}
+      </ul>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+{% endif %}
