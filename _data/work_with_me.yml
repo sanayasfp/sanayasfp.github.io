@@ -65,6 +65,25 @@ fr:
       company: "Talenteum.com"
       company_url: "https://talenteum.com/"
       quote: "J'ai connu Sana il y a plus de 2 ans, alors que j'étais encore cofondateur / CTO de Freeci. Il a rejoint la plateforme et j'ai été content de constater qu'il existe des développeurs avec de bons soft skills, mais aussi une réelle fibre pour les bonnes pratiques. C'est un excellent ingénieur que je recommanderais les yeux fermés pour vos projets."
+    - &testimonial_israel_kouassi
+      avatar: "/assets/avatars/israel-kouassi.png"
+      author: "Israël KOUASSI"
+      author_url: "https://www.linkedin.com/in/isra%C3%ABl-kouassi-b66919182/"
+      role: "Ingénieur Étude Informatique"
+      company: "GS2E"
+      company_url: "https://gs2e.ci/"
+      quote: >-
+        J'ai la chance de connaître Sana Yavo, que j'appelle <em>Optimazer</em>.
+        S'il y a une chose qui le définit, c'est son obsession de l'optimisation.
+
+        Avec lui, tout est pensé pour être plus rapide, plus efficace et mieux conçu : de la vitesse d'exécution d'une application jusqu'à la concrétisation d'une idée en un temps record.
+        C'est un véritable cocktail de geek, curieux, créatif et toujours à la recherche de la meilleure solution.
+
+        C'est aussi un véritable <em>soldat</em>, un fer de lance lorsqu'il s'agit d'épurer, d'améliorer et de rendre une application plus scalable.
+        Là où certains voient une application qui fonctionne, Sana voit encore ce qui peut être optimisé.
+
+        Le monde a connu la compression, moi, j'ai connu Sana Yavo (<em>Optimazer</em>).
+      highlight: "Le monde a connu la compression, moi, j'ai connu Sana Yavo (Optimazer)."
 
 en:
   availability: "I partner with organizations and engineering teams on AI Infrastructure, Data Governance, MLOps, and High-Performance Backend Architectures."
@@ -101,3 +120,17 @@ en:
     - <<: *testimonial_aka_laurent
       role: "Full Stack / AI Engineer"
       quote: "I met Sana over 2 years ago, when I was still cofounder / CTO at Freeci. He joined the platform, and I was glad to see there are developers with strong soft skills who also have a genuine knack for best practices. He's an excellent engineer whom I'd recommend without hesitation for your projects."
+    - <<: *testimonial_israel_kouassi
+      role: "Software Engineer"
+      quote: >-
+        I have the privilege of knowing Sana Yavo, whom I call the <em>Optimizer</em>.
+        If there's one thing that defines him, it's his obsession with optimization.
+
+        With him, everything is designed to be faster, more efficient, and better built: from an application's execution speed to turning an idea into reality in record time.
+        He's a true blend of geek, curiosity, and creativity, always searching for the best solution.
+
+        He's also a real <em>soldier</em>, a spearhead when it comes to streamlining, improving, and making an application more scalable.
+        Where some see a working application, Sana still sees what can be optimized.
+
+        The world got compression; I got to know Sana Yavo (the <em>Optimizer</em>).
+      highlight: "The world got compression; I got to know Sana Yavo (the Optimizer)."
