@@ -28,12 +28,12 @@ fr:
         - "MLOps et déploiement de modèles de Computer Vision (YOLO, PyTorch)."
     - title: "Backend haute performance & System Design"
       items:
-        - "Conception de systèmes distribués scalables et d'APIs à fort débit (Rust, Python, TypeScript)."
+        - "Conception de systèmes distribués scalables et d'APIs à fort débit (PHP, Python, TypeScript)."
         - "Architecture de bases de données, optimisation de requêtes et intégration géospatiale (PostgreSQL)."
         - "Outillage interne sur mesure (CLI, environnements de développement sans conteneur)."
     - title: "Mentorat technique & formation d'équipes"
       items:
-        - "Formation d'équipes d'ingénierie à l'intégration moderne de l'IA, à Rust et au System Design."
+        - "Formation d'équipes d'ingénierie à l'intégration moderne de l'IA, au Backend et au System Design."
         - "Revues de code, audits d'architecture et montée en compétence des développeurs juniors/intermédiaires."
   testimonial_title: "Témoignages :"
   testimonial_at: "chez"
@@ -98,12 +98,12 @@ en:
         - "MLOps and Computer Vision model deployments (YOLO, PyTorch)."
     - title: "High-Performance Backend & System Design"
       items:
-        - "Building scalable distributed systems and high-throughput APIs (Rust, Python, TypeScript)."
+        - "Building scalable distributed systems and high-throughput APIs (PHP, Python, TypeScript)."
         - "Database architecture, query optimization, and geodata integration (PostgreSQL)."
         - "Custom internal tooling (CLI tools, containerless development environments)."
     - title: "Technical Mentorship & Team Training"
       items:
-        - "Training engineering teams on modern AI integration, Rust, and System Design."
+        - "Training engineering teams on modern AI integration, Backend, and System Design."
         - "Code reviews, architectural audits, and levelling up junior/mid-level developers."
   testimonial_title: "Testimonials:"
   testimonial_at: "at"
