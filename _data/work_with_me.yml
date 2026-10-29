@@ -1,7 +1,7 @@
 shared:
   organizations: &organizations
     - name: "Edane SA"
-      url: "https://edane.org/site/index.html"
+      url: "https://edane.org"
       logo: "/assets/logos/edane-sa.png"
     - name: "Wearer Lab"
       url: "https://wearer.xyz/"
@@ -45,7 +45,7 @@ fr:
       author_url: "https://www.linkedin.com/in/konefanhatcha/"
       role: "Directeur de l'ingénierie & CTO"
       company: "Edane SA"
-      company_url: "https://edane.org/site/index.html"
+      company_url: "https://edane.org"
       quote: "Rigoureux, curieux et techniquement solide, Sana a grandement contribué à la réussite de nos projets de développement. Il possède une excellente méthodologie de travail et s'intègre parfaitement au sein d'une équipe agile. Son esprit d'analyse et sa communication fluide en font un maillon fort pour mener à bien des projets tech ambitieux. Un profil de confiance à recruter sans hésiter."
       highlight: "Rigoureux, curieux et techniquement solide... un maillon fort pour mener à bien des projets tech ambitieux."
     - &testimonial_narcisse_adingra
