@@ -104,8 +104,6 @@ This is one possible implementation among many. The tools are specific to our st
 ![Fast-path and slow-path routing between direct tool calls and the heavy-model main agent](/assets/the_ai_illusion/fig4_fast_slow_path.png)
 *Figure 4: Fast-path / slow-path routing architecture.*
 
-> **Observed results:** *(Add here your real production metrics — e.g., 72% of queries served via the fast path without heavy model invocation, 4x latency reduction, and 65% API cost reduction).*
-
 ## 5. Verify, Don’t Assume
 
 A defense that has never been verified under real conditions is a defense you only hope exists.
