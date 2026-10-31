@@ -104,8 +104,6 @@ Il s'agit ici d'une implémentation concrète parmi d'autres. L'outillage est sp
 ![Routage en chemin rapide et chemin lent, entre appel direct d'outils et modèle lourd de l'agent principal](/assets/the_ai_illusion/fig4_fast_slow_path.png)
 *Figure 4 : Architecture de routage fast-path / slow-path.*
 
-> **Résultats observés :** *(Insérer ici vos métriques clés de production — par exemple : 72 % des requêtes traitées par le chemin rapide sans appel au modèle lourd, division par 4 de la latence médiane et réduction de 65 % des coûts d'API).*
-
 ## 5. Vérifier plutôt que présumer
 
 Une défense qui n'a jamais été éprouvée dans des conditions réelles est une défense dont on espère simplement l'existence.
